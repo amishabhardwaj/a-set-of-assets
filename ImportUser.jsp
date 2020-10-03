@@ -6,8 +6,7 @@
 <meta charset="ISO-8859-1">
 <title>AsetOfAsset</title>
 </head>
-<body  style="background-color:gray;">
-
+<body  style="background-color:#f1f1f1;">
 
 <meta name="viewport" content="width=device-width, initial-scale=2">
 <style>
@@ -20,13 +19,13 @@ body {
 
 .header {
   overflow: hidden;
-  background-color: #f1f1f1;
+  background-color: #5D6D7E;
   padding: 10px 20px;
 }
 
 .header a {
-  float: left;
-  color: blue;
+  float: right;
+  color: black;
   text-align: center;
   padding: 12px;
   text-decoration: none;
@@ -46,18 +45,18 @@ body {
 }
 
 .header a.active {
-  background-color: powderblue;
-  color: blue;
+  background-color: gray;
+  color: black;
 }
 
 .header-right {
-  float: right;
+  float: left;
 }
 
 @media screen and (max-width: 350px) {
   .header a {
     display: block;
-    text-align: left;
+    text-align: right;
   }
   
   .header-right {
@@ -66,12 +65,13 @@ body {
 }
 </style>
 
+
 <div class="header">
   <a href="#default" class="logo">A set Of Assets</a>
   <div class="header-right">
     <a class="active" href="#home">Home</a>
     <a href="#contact">Contact</a>
-    <a href="#about us">About</a>
+    <a href="#about us">About us</a>
   </div>
 </div>
 
@@ -79,26 +79,53 @@ body {
 
 
 <br> 
+<script>
+			function validate(){
+
+				var name = document.getElementById("name").value;
+				var phone = document.getElementById("phone").value;
+				var mail = document.getElementById("mail").value;
+				var uname = document.getElementById("uname").value;
+				var pass = document.getElementById("pass").value;
+				
+				if(name=="" && phone=="" && mail=="" && uname=="" && pass=="")
+				{
+					alert("All fields are mandatory!");
+					return false;
+				}
+				else
+					return true;
+			}
+			 
+</script>
 
 
-<form onsubmit="validate.jsp">
-		
-			Name :  <input type = "text" name = "name"> <br> <br>
-			Role : <input type= "radio" name = "r1"> Admin  
-					 <input type= "radio" name = "r1"> Borrower <br> <br>
-			Telephone :  <input type = "text" name = "phone"> <br> <br>
-			Email :  <input type = "email" name = "mail"> <br> <br>		
-			Username:  <input type = "text" name = "uname"> <br> <br>
-			Password:  <input type = "password" name = "pass"> <br> <br>
-			
-			Select a file to upload:
-			<br><br>
-        	<input type = "file" name = "file" size = "10" />
+
+<form method="post" class="split left">
+
+
+			<table height=400 bgcolor = #5D6D7E style="color: white;">
+			<tr> <td> Name </td> <td> :</td>  <th>  <input type = "text" name = "name"></th> </tr>
+			<tr> <td> Role <td> :</td></td>  <td> <input type= "radio" name = "r1"> Admin  <td> <input type= "radio" name = "r1"> Borrower</td> </td> </tr>
+			<tr> <td> Telephone <td> :</td>  <td> <input type = "text" name = "phone"> </td> </tr>
+			<tr> <td> Email </td> <td> :</td>  <td> <input type = "email" name = "mail"></td> </tr>
+			<tr> <td> Username </td><td> :</td>  <td>  <input type = "text" name = "uname"> </td> </tr>
+			<tr> <td> Password</td> <td> :</td> <td> <input type = "password" name = "pass"> </td> </tr>
+			</table>
+			<br> <br>
+			<h2 style="Georgia Italic;"> Select a file to upload:</h2>
+        	<input type = "file" name = "file" size = "10" class="block" />
          	<br><br>
-         	<input type = "submit" value = "Upload File" />
+         	<input type = "submit" value = "Upload File" class="block"/>
 			<br><br>
-			<input type = "submit" value ="Import user"> <br> <br>
+			<input type = "submit" class="block" value ="Import user" onclick="validate()"> <br> <br>
 		
 </form>
+
+<table border=1, width=100%, height=70>
+			<tr> <th> Name </th> <th> Role</th>  <th> Telephone</th> <th> E-mail</th> <th> Username</th> </tr>
+			
+</table>		
+			
 </body>
 </html>
