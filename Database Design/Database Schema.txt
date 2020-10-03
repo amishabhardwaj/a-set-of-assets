@@ -1,0 +1,55 @@
+Five Tables
+==============================
+User
+Category
+Assets
+Borrow
+Logs
+
+user{
+	
+	UserID, [pk]
+	Name,
+	Role [ Admin,Borrower ][Check Constraint],
+	Telephone,
+	Email,
+	Password
+
+}
+
+category{
+	Name, [ pk ]
+	Lending Period,
+	Fee Per Day,
+	Ban Period		
+}
+
+
+asset{
+	
+	ID, [ pk ]
+	Name[ Sub Category ]
+	Type [ Category ] [fk]
+	Description
+	DateAdded
+	isAvailable[True/False]
+}
+
+
+Borrow{
+
+	borrower_id,
+	asset_id[ composite foreign key ],
+	Borrow_date,
+	Return Date,[Add trigger to update return date based on borrow date],
+	borrow_status [ open,closed,pending ]
+	fine
+}
+
+
+Logs{
+	
+ To Store Unhandled Exceptions
+ No idea about this
+ we'll ask mam
+}
