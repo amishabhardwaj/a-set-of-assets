@@ -1,55 +1,60 @@
-Five Tables
-==============================
+Five Tables For Now
+==========================
+Update Fields are marked by *
+-------------------------------------
 User
-Category
-Assets
-Borrow
-Logs
-
-user{
-	
-	UserID, [pk]
+{
+	Userid,[pk]
+	password,
 	Name,
-	Role [ Admin,Borrower ][Check Constraint],
-	Telephone,
+	Role,
+	Phonenumber,
 	Email,
-	Password
+	*last_login
 
 }
 
-category{
-	Name, [ pk ]
-	Lending Period,
-	Fee Per Day,
-	Ban Period		
+Category
+{
+	Category,[pk]
+	lending_period,
+	Fine,
+	Ban_Period	
 }
 
 
-asset{
+
+Asset
+{
 	
-	ID, [ pk ]
-	Name[ Sub Category ]
-	Type [ Category ] [fk]
-	Description
-	DateAdded
-	isAvailable[True/False]
+	Asset_id,[pk]
+	Subcategory,
+	Category,[fk]
+	Date_Added,
+	Description,
+	isAvailable[true/false]
+
 }
 
-
-Borrow{
-
-	borrower_id,
-	asset_id[ composite foreign key ],
-	Borrow_date,
-	Return Date,[Add trigger to update return date based on borrow date],
-	borrow_status [ open,closed,pending ]
-	fine
-}
-
-
-Logs{
+Borrow
+{
 	
- To Store Unhandled Exceptions
- No idea about this
- we'll ask mam
+	*transaction_id,[pk]
+	user_id, [ fk ]
+	asset_id,  [ fk ]
+	issue_date,
+	due_date,
+	*return_date
+	borrow_status [ open/close/pending ]
+
+}
+
+OverDuedTransactions
+{
+	
+	*transaction_id,[fk]
+	*ban_startDate,
+	*isFinePaid,
+	*isBanFinished [ True/False ]
+
 }
