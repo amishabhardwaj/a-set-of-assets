@@ -1,131 +1,221 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<meta charset="ISO-8859-1">
-<title>AsetOfAsset</title>
-</head>
-<body  style="background-color:#f1f1f1;">
+<title>ImportUser</title>
 
-<meta name="viewport" content="width=device-width, initial-scale=2">
 <style>
-* {box-sizing: border-box;}
-
-body { 
-  margin: 2;
-  font-family: Georgia Italic, Helvetica, sans-serif;
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: 'Josefin Sans', sans-serif
 }
 
-.header {
-  overflow: hidden;
-  background-color: #5D6D7E;
-  padding: 10px 20px;
+/******************************************************************/
+.mySlides {
+	display: none;
 }
 
-.header a {
-  float: right;
-  color: black;
+
+
+/* Slideshow container */
+.slideshow-container {
+	max-width: 200px;
+	position: relative;
+	margin-left: 20px;
+	/* margin: auto; */
+}
+
+/* Caption text */
+.text {
+	color: #f2f2f2;
+	font-size: 15px;
+	padding: 8px 12px;
+	position: absolute;
+	bottom: 8px;
+	width: 100%;
+	text-align: center;
+}
+
+/* Number text (1/3 etc) */
+.numbertext {
+	color: #f2f2f2;
+	font-size: 12px;
+	padding: 8px 12px;
+	position: absolute;
+	top: 0;
+}
+
+/* The dots/bullets/indicators */
+.dot {
+	height: 15px;
+	width: 15px;
+	margin: 0 2px;
+	background-color: #bbb;
+	border-radius: 50%;
+	display: inline-block;
+	transition: background-color 0.6s ease;
+}
+
+.active {
+	background-color: #717171;
+}
+
+/* Fading animation */
+.fade {
+	-webkit-animation-name: fade;
+	-webkit-animation-duration: 1.5s;
+	animation-name: fade;
+	animation-duration: 1.5s;
+}
+
+@
+-webkit-keyframes fade {
+	from {opacity: .4
+}
+
+to {
+	opacity: 1
+}
+
+}
+@
+keyframes fade {
+	from {opacity: .4
+}
+
+to {
+	opacity: 1
+}
+
+}
+
+/* On smaller screens, decrease text size */
+
+
+/*hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh*/
+header {
+	width: 100%;
+	height: 100%;
+	background-image: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)),
+		url("back.jpg");
+	background-repeat: no-repeat;
+
+	background-attachment: fixed;
+}
+
+footer {
+	background-color: black;
+	padding: 20px;
+	text-align: center;
+	color: white;
+}
+
+nav {
+	width: 100%;
+	height: 15vh;
+	background-color: rgba(0, 0, 0, 0.5);
+	color: white;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	text-transform: uppercase;
+}
+
+nav .logo {
+	width: 25%;
+	text-align: center;
+}
+
+nav .menu {
+	width: 40%;
+	display: flex;
+	justify-content: space-around;
+}
+
+nav .menu a {
+	width: 50%;
+	text-decoration: none;
+	color: white;
+	font-weight: bold;
+}
+
+main {
+	width: 100%;
+	height:100vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+	color: white;
+}
+.block {
+  display: block;
+  width: 30%;
+  border: none;
+  background-color:  #717171;
+  padding: 14px 28px;
+  font-size: 16px;
+  cursor: pointer;
   text-align: center;
-  padding: 12px;
-  text-decoration: none;
-  font-size: 18px; 
-  line-height: 25px;
-  border-radius: 4px;
 }
 
-.header a.logo {
-  font-size: 35px;
-  font-weight: bold;
-}
 
-.header a:hover {
-  background-color: #ddd;
-  color: black;
-}
-
-.header a.active {
-  background-color: gray;
-  color: black;
-}
-
-.header-right {
-  float: left;
-}
-
-@media screen and (max-width: 350px) {
-  .header a {
-    display: block;
-    text-align: right;
-  }
-  
-  .header-right {
-    float: none;
-  }
-}
 </style>
+</head>
+<body>
+	<header>
 
+		<nav>
+			<div class="logo">
 
-<div class="header">
-  <a href="#default" class="logo">A set Of Assets</a>
-  <div class="header-right">
-    <a class="active" href="#home">Home</a>
-    <a href="#contact">Contact</a>
-    <a href="#about us">About us</a>
-  </div>
+				<h1 class="">A set Of Assets</h1>
+</html>
 </div>
+<div class="menu">
+	<a href="#"></a> <a href="#">ABOUT</a> <a href="#">CONTACT</a>
+</div>
+</nav>
 
-<br>
-
-
-<br> 
-<script>
-			function validate(){
-
-				var name = document.getElementById("name").value;
-				var phone = document.getElementById("phone").value;
-				var mail = document.getElementById("mail").value;
-				var uname = document.getElementById("uname").value;
-				var pass = document.getElementById("pass").value;
-				
-				if(name=="" && phone=="" && mail=="" && uname=="" && pass=="")
-				{
-					alert("All fields are mandatory!");
-					return false;
-				}
-				else
-					return true;
-			}
-			 
-</script>
+	<form method="post">
 
 
-
-<form method="post" class="split left">
-
-
-			<table height=400 bgcolor = #5D6D7E style="color: white;">
-			<tr> <td> Name </td> <td> :</td>  <th>  <input type = "text" name = "name"></th> </tr>
-			<tr> <td> Role <td> :</td></td>  <td> <input type= "radio" name = "r1"> Admin  <td> <input type= "radio" name = "r1"> Borrower</td> </td> </tr>
-			<tr> <td> Telephone <td> :</td>  <td> <input type = "text" name = "phone"> </td> </tr>
-			<tr> <td> Email </td> <td> :</td>  <td> <input type = "email" name = "mail"></td> </tr>
-			<tr> <td> Username </td><td> :</td>  <td>  <input type = "text" name = "uname"> </td> </tr>
-			<tr> <td> Password</td> <td> :</td> <td> <input type = "password" name = "pass"> </td> </tr>
+		<table height=400 style="color: white;">
+			<tr>
+				<td>Name</td> <td>:</td> <th><input type="text" name="name"></th>
+			</tr>
+			<tr>
+				<td>Role <td> :</td>
+				</td>  <td> <input type="radio" name="r1"> Admin  
+				<td> <input type="radio" name="r1"> Borrower</td> </td> </tr>
+			<tr>
+			    <td> Telephone <td> :</td>  <td> <input type="text" name="phone"> </td> </tr>
+			<tr> 
+				<td> Email </td> <td> :</td>  <td> <input type="email"name="mail"></td> </tr>
+			<tr>
+				<td> Username </td> <td> :</td>  <td>  <input type="text" name="uname"> </td> </tr>
+			<tr>
+				<td> Password</td> <td> :</td> <td> <input type="password" name="pass"> </td>
+		 	</tr>
 			</table>
 			<br> <br>
-			<h2 style="Georgia Italic;"> Select a file to upload:</h2>
-        	<input type = "file" name = "file" size = "10" class="block" />
+			<h2 style="color: white;"> Select a file to upload:</h2>
+        	<input type="file" name="file" size="10" class="block" />
          	<br><br>
-         	<input type = "submit" value = "Upload File" class="block"/>
+         	<input type="submit" value="Upload File" class="block" />
 			<br><br>
-			<input type = "submit" class="block" value ="Import user" onclick="validate()"> <br> <br>
+			<input type="submit" class="block" value="Import user"
+			onclick="validate()"> <br> <br>
 		
 </form>
 
-<table border=1, width=100%, height=70>
+<table border=1, width=70%, height=70, style="color: white;">
 			<tr> <th> Name </th> <th> Role</th>  <th> Telephone</th> <th> E-mail</th> <th> Username</th> </tr>
 			
-</table>		
-			
+</table>
+</main>
+ </div>
+
+    </header>
+    
 </body>
-</html>
