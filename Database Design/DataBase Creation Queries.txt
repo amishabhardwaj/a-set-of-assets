@@ -1,0 +1,137 @@
+ADMIN               |ASSETS                        |
+ADMIN               |BORROW                        |
+ADMIN               |CATEGORIES                    |
+ADMIN               |OVERDUEDTRANSACTIONS          |
+ADMIN               |USERS                         |
+
+
+Modified Schema
+============================================================
+
+Users
+{
+	Userid,[pk]
+	password,
+	Name,
+	Role,
+	Phonenumber,
+	Email,
+	SecurityQuestion,
+	Answer,
+	last_login
+	
+}
+
+Categories
+{
+	Category,[pk]
+	lending_period,
+	Fine_To_Be_Paid,
+	Ban_Period	
+}
+
+
+
+Assets
+{
+	
+	Asset_id,[pk]
+	Subcategory,
+	Category,[fk]
+	Date_Added,
+	Description,
+	isAvailable[true/false]
+
+}
+
+Borrow
+{
+	
+	*transaction_id,[pk]
+	user_id, [ fk ]
+	asset_id,  [ fk ]
+	issue_date,
+	due_date,
+	*return_date
+	borrow_status [ open/close/pending ]
+
+}
+
+OverDuedTransactions
+{
+	
+	*tid,[fk]
+	*ban_startDate,
+	*isFinePaid,
+	*isBanFinished [ True/False ]
+
+}
+
+-
+
+
+ij> create table Users(UserId varchar(30) primary key,Password varchar(15),Name varchar(30),Role varchar(20),PhoneNumber int,Email varchar(30),Security_Question varchar(100),Answer varchar(50),LastLogin date);
+0 rows inserted/updated/deleted
+
+-----------------------------------------
+
+
+ij> create table Categories(Category varchar(30) primary key,Lending_Period int,Fine_Per_Day int,Ban_Period int);
+0 rows inserted/updated/deleted
+ 
+--------------------------------------------------------------
+
+ij> create table Assets(AssetId int NOT NULL GENERATED ALWAYS AS IDENTITY (START WITH 1, INCREMENT BY 1) primary key,Category varchar(30) references Categories(Category),Subcategory varchar(20),Date_Added date,Description varchar(100),isAvailable boolean);
+0 rows inserted/updated/deleted
+
+Note : 
+insert into Assets(all cols except AssetId since its autoincremented) values(all values except AssetId);
+Same goes for Borrow
+---------------------------------------------------
+
+ij> create table Borrow(TransactionID int NOT NULL GENERATED ALWAYS AS IDENTITY (START WITH 100, INCREMENT BY 1) primary key,UserId varchar(30) references Users(UserID),AssetId int references Assets(AssetId),IssueDate date,DueDate date,ReturnDate date,BorrowStatus varchar(20));
+0 rows inserted/updated/deleted
+
+------------------------------------------------------------------
+
+ij> create table OverDuedTransactions(TransactionID int references Borrow(TransactionID),BanStartDate date,isFinePaid boolean,isBanFinished boolean);
+0 rows inserted/updated/deleted
+
+
+-------------------------------------------------------------------------------
+
+
+Date Type
+
+DATE data type
+
+DATE provides for storage of a year-month-day in the range supported by java.sql.Date.
+Syntax
+
+DATE
+
+Corresponding compile-time Java type
+
+java.sql.Date
+JDBC metadata type (java.sql.Types)
+
+DATE
+
+Dates, times, and timestamps must not be mixed with one another in expressions.
+Any value that is recognized by the java.sql.Date method is permitted in a column of the corresponding SQL date/time data type. Derby supports the following formats for DATE:
+
+yyyy-mm-dd
+mm/dd/yyyy
+dd.mm.yyyy
+
+The first of the three formats above is the java.sql.Date format.
+
+The year must always be expressed with four digits, while months and days may have either one or two digits.
+
+Derby also accepts strings in the locale specific datetime format, using the locale of the database server. If there is an ambiguity, the built-in formats above take precedence.
+Examples
+
+VALUES DATE('1994-02-23')
+
+VALUES '1993-09-01'
+
