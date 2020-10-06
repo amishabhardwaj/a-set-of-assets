@@ -1,198 +1,194 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+<!--a set of assets/WebContent/WEB-INF/UserHomepage.html-->
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="ISO-8859-1">
 <title>Overdue management</title>
-</head>
-<body  style="background-color:#f1f1f1;">
-
 <style>
-* {
+/* Split the screen in half */
+body {
 	margin: 0;
-	padding: 0;
-	box-sizing: border-box;
-	font-family: 'Josefin Sans', sans-serif
+	font-family: Arial, Helvetica, sans-serif;
 }
 
-/******************************************************************/
-.mySlides {
-	display: none;
-}
-
-
-
-/* Slideshow container */
-.slideshow-container {
-	max-width: 200px;
-	position: relative;
-	margin-left: 20px;
-	/* margin: auto; */
-}
-
-/* Caption text */
-.text {
-	color: #f2f2f2;
-	font-size: 15px;
-	padding: 8px 12px;
-	position: absolute;
-	bottom: 8px;
-	width: 100%;
-	text-align: center;
-}
-
-/* Number text (1/3 etc) */
-.numbertext {
-	color: #f2f2f2;
-	font-size: 12px;
-	padding: 8px 12px;
-	position: absolute;
-	top: 0;
-}
-
-/* The dots/bullets/indicators */
-.dot {
-	height: 15px;
-	width: 15px;
-	margin: 0 2px;
-	background-color: #bbb;
-	border-radius: 50%;
-	display: inline-block;
-	transition: background-color 0.6s ease;
-}
-
-.active {
-	background-color: #717171;
-}
-
-/* Fading animation */
-.fade {
-	-webkit-animation-name: fade;
-	-webkit-animation-duration: 1.5s;
-	animation-name: fade;
-	animation-duration: 1.5s;
-}
-
-@
--webkit-keyframes fade {
-	from {opacity: .4
-}
-
-to {
-	opacity: 1
-}
-
-}
-@
-keyframes fade {
-	from {opacity: .4
-}
-
-to {
-	opacity: 1
-}
-
-}
-
-/* On smaller screens, decrease text size */
-
-
-/*hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh*/
-header {
-	width:100%;
-   height: 100vh; 
-   background-image:linear-gradient(rgba(0,0,0,0.8),rgba(0,0,0,0.8)),url("back.jpg");
-   background-repeat: no-repeat;
-   background-size: cover;
-}
-
-footer {
-	background-color: black;
-	padding: 20px;
-	text-align: center;
-	color: white;
-}
-
-nav {
-	width: 100%;
-	height: 15vh;
-	background-color: rgba(0, 0, 0, 0.5);
-	color: white;
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-	text-transform: uppercase;
-}
-
-nav .logo {
-	width: 25%;
-	text-align: center;
-}
-
-nav .menu {
-	width: 40%;
-	display: flex;
-	justify-content: space-around;
-}
-
-nav .menu a {
+.split {
+	height: 100%;
 	width: 50%;
-	text-decoration: none;
-	color: white;
-	font-weight: bold;
+	position: fixed;
+	z-index: 1;
+	top: 5;
+	overflow-x: hidden;
+	padding-top: 20px;
 }
 
-main {
-	width: 100%;
-	height:100vh;
-	display: flex;
-	justify-content: center;
-	align-items: center;
+/* Control the left side */
+.left {
+	left: 0;
+	background-color: black; /*#e9eeed*/
+	color: white;
+}
+
+.lefttable {
+	margin-top: 35px;
+	margin-left: 10px;
+}
+
+td {
+	padding-left: 80px;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	padding-right: 60px;
+}
+
+/* Control the right side */
+.right {
+	right: 0;
+	background-color: #f4f3f3;
+}
+
+/* If you want the content centered horizontally and vertically */
+.centered {
+	position: relative;
+	top: 20%;
+	left: 40%;
+	transform: translate(5%, -50%);
+	text-align: left;
+}
+
+/* Style the image inside the centered container, if needed */
+.centered img {
+	width: 150px;
+	border-radius: 70%;
+}
+
+.topnav {
+	overflow: hidden;
+	background-color: #e9e9e9;
+	z-index: 1;
+}
+
+.topnav a {
+	float: left;
+	display: block;
+	color: black;
 	text-align: center;
+	padding: 14px 16px;
+	text-decoration: none;
+	font-size: 17px;
+}
+
+.topnav a:hover {
+	background-color: #ddd;
+	color: black;
+}
+
+.topnav a.active {
+	background-color: #000000;
 	color: white;
 }
-.block {
-  display: block;
-  width: 15%;
-  border: none;
-  background-color:  #717171;
-  padding: 14px 28px;
-  font-size: 16px;
-  cursor: pointer;
-  text-align: center;
+
+.topnav input[type=text] {
+	padding: 6px;
+	margin-top: 8px;
+	font-size: 17px;
+	border: none;
 }
 
+.topnav input[type=text] {
+	border: 1px solid #ccc;
+}
 
+.addassetbox {
+	position: absolute;
+	top: 50%;
+	left: 20%;
+	transform: translate(-50%, -50%);
+	width: 250px;
+}
+
+.addassetbutn {
+	margin-left: 105px;
+}
 </style>
-
-<header>
-
-		<nav>
-			<div class="logo">
-
-				<h1 class="">A set Of Assets</h1>
-</html>
-</div>
-<div class="menu">
-	<a href="#"></a> <a href="#">ABOUT</a> <a href="#">CONTACT</a>
-</div>
-</nav>
+</head>
+<body>
+	<div class="topnav">
+		<a class="active" href="AddAssets.html">Add Assets</a> <a
+			href="#OverdueAssets">Over-due Assets</a> <a href="#">Import User</a>
+		<a href="#">View Reports</a>
 
 
+	</div>
+	</div>
+	<div class="split left">
+		<div class="centered">
+			<img src="adminimg.jpg" alt="USER"
+				style="left: 60%; width: 80px; height: 80px;">
+		</div>
+		<br>
+		<br>
+		<br>
+		<br>
+		<div class="left" align="left">
+			<table class="lefttable">
 
-<h2 align = "center",  style="color: white;">Search overdue assets </h2>
-<form style="color: white;" ,height=400>
-Search by: <br> <br>
- <input type= "radio" name = "r1"> Date <br> <br>
- <input type= "radio" name = "r1""> Name <br> <br>
- <input type= "radio" name = "r1"> Category <br> <br>
- 
- <input type = "submit" value="Search", style="color: white;" , class="block"> <br> <br>
- </form>>
- <table border=1, width=100%, height=70, style="color: white;">
-			<tr> <th> Transaction Id </th> <th> Ban Start Date</th>  <th> Fine paid?</th> <th> Ban period finished?</th>  </tr>
-			
+				<tr>
+					<td><ul>
+							<li>Name</li>
+						</ul></td>
+					<td>:</td>
+					<td>--</td>
+				</tr>
+
+				<tr>
+					<td><ul>
+							<li>Email</li>
+						</ul></td>
+					<td>:</td>
+					<td>--</td>
+				</tr>
+				<tr>
+					<td><ul>
+							<li>Logged in at
+						</ul></td>
+					<td>:</td>
+					<td>--</td>
+				</tr>
+
+			</table>
+		</div>
+	</div>
+	<div class="split right">
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<h2 style="text-shadow: 4px 4px 2px #A0A0A0" align="center">Overdue
+			Asset</h2>
+		<br>
+		<br>
+		<br>
+		<form height=400, align="center">
+			<h2>Search by:</h2>
+			<br> <input type="radio" name="r1"> Date <br>
+			<br> <input type="radio" name="r1"> Name <br> <br>
+			<input type="radio" name="r1"> Category <br> <br> <input
+				type="submit" value="Search" , align="center" , class="block">
+			<br> <br>
+
+		</form>
+		<table border=1, width=100%, height=70>
+			<tr>
+				<th>Transaction Id</th>
+				<th>Ban Start Date</th>
+				<th>Fine paid?</th>
+				<th>Ban period finished?</th>
+			</tr>
+
+		</table>
+
+	</div>
 
 </body>
 </html>
+

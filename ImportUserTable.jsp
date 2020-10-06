@@ -153,37 +153,12 @@ margin-left:105px;
 </div>
 <div class="split right">
 	<br><br><br><br><br>
-    <h2 style="text-shadow: 4px 4px 2px #A0A0A0" align="center">Import Users</h2><br><br><br>
-  
-<form method="post" action="ImportUserTable.jsp">
+    <h2 style="text-shadow: 4px 4px 2px #A0A0A0" align="center">Users' Table</h2><br><br><br>
 
 
-		<table >
-			<tr>
-				<td>Name</td> <td>:</td> <th><input type="text" name="name"></th>
-			</tr>
-			<tr>
-				<td>Role <td> :</td>
-				</td>  <td> <input type="radio" name="r1"> Admin  <br><input type="radio" name="r1"> Borrower</td> </tr>
-			<tr>
-			    <td> Telephone <td> :</td>  <td> <input type="text" name="phone"> </td> </tr>
-			<tr> 
-				<td> Email </td> <td> :</td>  <td> <input type="email"name="mail"></td> </tr>
-			<tr>
-				<td> Username </td> <td> :</td>  <td>  <input type="text" name="uname"> </td> </tr>
-			<tr>
-				<td> Password</td> <td> :</td> <td> <input type="password" name="pass"> </td>
-		 	</tr>
-			</table>
-			<br> <br>
-			<h2 align="center"> Select a file to upload:</h2>
-        	<input type="file" name="file" size="10"/>
-         	<br><br>
-         	<input type="submit" value="Upload File"  />
-			<input type="submit" value="Import user"
-			onclick="validate()" /> <br> <br>
-		
-</form>
+<table border=1, width=100%, height=70>
+			<tr> <th> Name </th> <th> Role</th>  <th> Telephone</th> <th> E-mail</th> <th> Username</th> </tr>
+			
 
 
 </div>
