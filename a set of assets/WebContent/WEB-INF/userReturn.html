@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Assets Check</title>
+	<title>Return</title>
 <style>
-  /* Split the screen in half */
+	/* Split the screen in half */
 body {
   margin: 0;
   font-family: Arial, Helvetica, sans-serif;
@@ -16,12 +16,13 @@ body {
   top: 5;
   overflow-x: hidden;
   padding-top: 20px;
+
 }
 
 /* Control the left side */
 .left {
   left: 0;
-  background-color: black;/*#e9eeed*/
+  /*background-color: black;*//*#e9eeed*/ 
   background-image: url("spacedot.gif");
   color: white;
 }
@@ -30,7 +31,6 @@ body {
 .right {
   right: 0;
   background-color: #f4f3f3;
-
 }
 
 /* If you want the content centered horizontally and vertically */
@@ -54,7 +54,7 @@ padding-bottom: 5px;
 padding-right: 60px;
 }
 ol {
-  padding-left: 120px;
+	padding-left: 120px;
 }
 
 .topnav {
@@ -124,14 +124,14 @@ ol {
   .topnav input[type=text] {
     border: 1px solid #ccc;  
   }
-  
+ 
 </style>
 </head>
 <body>
 <div class="topnav">
-  <a href="UserHomepage.html">Home</a>
-  <a class="active" href="">Assets</a>
-  <a href="userReturn.html">Return</a>
+  <a href="userHomepage.html">Home</a>
+  <a href="userAssets.html">Assets</a>
+  <a class="active" href="">Return</a>
   <a href="userMessage.html">Messages</a>
   <div class="search-container">
     <form action="">
@@ -140,78 +140,47 @@ ol {
     </form>
   </div>
 </div>
+
 <div class="split left">
   <div class="centered">
     <img src="face.png" alt="USER" style="left: 40%;">
   </div>
   <br><br><br><br>
   <table class="left" align="left">
-    <tr>
-      <td><ul><li>User Name</li></ul></td>
-      <td>:</td>
-      <td>--</td>
-    </tr>
-    <tr>
-      <td><ul><li>Employee ID</li></ul></td>
-      <td>:</td>
-      <td>--</td>
-    </tr>
-    <tr>
-      <td><ul><li>Name</li></ul></td>
-      <td>:</td>
-      <td>--</td>
-    </tr>
-    <tr>
-      <td><ul><li>Telephone</li></ul></td>
-      <td>:</td>
-      <td>--</td>
-    </tr>
-  <tr>
-      <td><ul><li>Email</li></ul></td>
-      <td>:</td>
-      <td>--</td>
-    </tr>
-         
+  	<tr>
+  		<td><ul><li>User Name</li></ul></td>
+  		<td>:</td>
+  		<td>--</td>
+  	</tr>
+  	<tr>
+  		<td><ul><li>Employee ID</li></ul></td>
+  		<td>:</td>
+  		<td>--</td>
+  	</tr>
+  	<tr>
+  		<td><ul><li>Name</li></ul></td>
+  		<td>:</td>
+  		<td>--</td>
+  	</tr>
+  	<tr>
+  		<td><ul><li>Telephone</li></ul></td>
+  		<td>:</td>
+  		<td>--</td>
+  	</tr>
+ 	<tr>
+  		<td><ul><li>Email</li></ul></td>
+  		<td>:</td>
+  		<td>--</td>
+  	</tr>
+    	   
     </table>
 </div>
-
 <div class="split right">
-  <br><br><br><br><br>
-    <h2 style="text-shadow: 4px 4px 2px #A0A0A0" align="center">Assets Available</h2><br>
-    <p align="center">You can choose from the variety of assests available <br>exclusively for your comfort at a single click..</p><hr><br>
-    <form action="">
-      <label for="assets">Choose a asset:</label>
-      <select name="asset" id="asset">
-          <option value="Select"></option>        
-        <optgroup label="Laptop">
-          <option value="Dell">Dell</option>
-          <option value="Lenovo">Lenovo</option>
-          <option value="HP">Hp</option>
-        </optgroup>
-        <optgroup label="Mobile">
-          <option value="Samsung">Samsung</option>
-          <option value="Apple">Apple</option>
-          <option value="Xiomi">Xiomi</option>
-        </optgroup>
-        <optgroup label="Book">
-          <option value="Java">Java for Beginners</option>
-          <option value="C">Let us C</option>
-          <option value="C++">Introduction to programming</option>
-        </optgroup>
-        <optgroup label="Headset">
-          <option value="Jabra">Jabra</option>
-          <option value="Sony">Sony</option>
-          <option value="JBL">JBL</option>
-        </optgroup>
-      </select>
-    </form><br><br>
-    <p align="center">
-    Available Quantity : <br><br>
-    Quantity to be borrowed : 1 <br><br>
-    <input type="submit" name="Add" value="Add">
-    </p>
-  <br>
-  <hr>
+	<br><br><br><br><br>
+    <h2 style="text-shadow: 4px 4px 2px #A0A0A0" align="center">Return items</h2><br><br><br>
+   	<p align="center">
+    <a href="" onclick="window.open('userLogin.html', 'Return', 'width=40,height=40')">return</a>
+  </p>
 </div>
 </body>
 </html>
