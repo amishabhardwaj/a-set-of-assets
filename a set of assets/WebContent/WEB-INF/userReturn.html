@@ -124,8 +124,21 @@ ol {
   .topnav input[type=text] {
     border: 1px solid #ccc;  
   }
- 
+
 </style>
+<script type = "text/javascript">
+         <!--
+            function getConfirmation() {
+               var retVal = confirm("Do you want to return ?");
+               if( retVal == true ) {
+                  window.location.href="returnTrans.html";
+                  return true;
+               } else {
+                  return false;
+               }
+            }
+         //-->
+      </script>  
 </head>
 <body>
 <div class="topnav">
@@ -179,7 +192,10 @@ ol {
 	<br><br><br><br><br>
     <h2 style="text-shadow: 4px 4px 2px #A0A0A0" align="center">Return items</h2><br><br><br>
    	<p align="center">
-    <a href="" onclick="window.open('userLogin.html', 'Return', 'width=40,height=40')">return</a>
+    <!--<a href="" onclick="window.open('userLogin.html', 'Return', 'width=2000,height=2000')">return</a>-->
+    <form>
+         <input type = "button" value = "Return" onclick = "getConfirmation();" align="center">
+     </form> 
   </p>
 </div>
 </body>
