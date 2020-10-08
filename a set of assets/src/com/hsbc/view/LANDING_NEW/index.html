@@ -23,7 +23,7 @@ img {vertical-align: middle;
 .slideshow-container {
   max-width: 200px;
   position: relative;
- margin-left:20px;
+ margin-left:-10px;
   /* margin: auto; */
 }
 
@@ -91,7 +91,7 @@ img {vertical-align: middle;
 /*hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh*/
 header{
    width:100%;
-   height: 100vh; 
+   height: 100%; 
    background-image:linear-gradient(rgba(0,0,0,0.8),rgba(0,0,0,0.8)),url("back.jpg");
    background-repeat: no-repeat;
    background-size: cover;
@@ -117,10 +117,15 @@ nav .logo
     width: 25%; text-align: center;
 }
 nav .menu{
-    width:40%;  display: flex; justify-content:space-around;
+    width:60%;  display: flex; justify-content:space-around;
 }
+
 nav .menu a{
     width:50%;text-decoration: none;color: white;font-weight: bold;
+}
+nav .menu a:hover
+{
+  color:aqua;
 }
 main{
     width: 100%;
@@ -133,7 +138,7 @@ main{
 } */
 section h1{
 
-    margin: 30px 0 20px 0;
+    margin: 30px 0 10px 0;
   font-size: 55px;
   font-weight: 700;
   text-shadow: 2px 1px 5px black;
@@ -146,7 +151,7 @@ section h1 span{
 }
 @keyframes animate
 {
-    
+
     0%
     {
         opacity: 0;
@@ -161,13 +166,17 @@ section h1 span{
     }
 }
 section p{
-  
+
   font-size: 25px;
   word-spacing: 2px;
   margin-bottom: 25px;
   text-shadow: 2px 1px 5px black;
 }
 section a{
+    padding: 12px 30px;border-radius: 4px;outline: none;text-transform: uppercase;font-size: 
+    13px;font-weight: 500;text-decoration:none ;letter-spacing: 1px;transition: all .5s ease;
+}
+section button{
     padding: 12px 30px;border-radius: 4px;outline: none;text-transform: uppercase;font-size: 
     13px;font-weight: 500;text-decoration:none ;letter-spacing: 1px;transition: all .5s ease;
 }
@@ -179,7 +188,7 @@ section .buttonone
 section .buttontwo
 {
     background:#00b894;
-    color:white;
+    color:black;
 }
  .buttonone:hover
 {
@@ -191,7 +200,122 @@ section .buttontwo
     background:#fff;
     color: #000;
 }
+/* The popup form - hidden by default */
+.form-popup {
+  box-shadow:2px 3px 5px rgb(177, 159, 159);
+   margin-top: 140px;
+   margin-right: 20px;
+  display: none;
+  position: fixed;
+  top: 0;
+  right: 15px;
+  border: 3px solid #f1f1f1;
+  z-index: 9;
+}
 
+/* Add styles to the form container */
+.form-container {
+ 
+  max-width: 300px;
+  padding: 10px;
+  background-color: white;
+  color: black;
+}
+
+/* Full-width input fields */
+.form-container input[type=text], .form-container input[type=password] {
+  width: 100%;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  border: none;
+  background:#f1f1f1;
+}
+
+/* When the inputs get focus, do something */
+.form-container input[type=text]:focus, .form-container input[type=password]:focus {
+  background-color: #ddd;
+  outline: none;
+}
+
+/* Set a style for the submit/login button */
+.form-container .btn {
+  border-radius:6px;
+  background-color: #4d79ff/*#4CAF50*/;
+  color: white;
+  padding: 16px 20px;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  margin-bottom:10px;
+  opacity: 0.8;
+}
+
+/* Add a red background color to the cancel button */
+.form-container .cancel {
+  background-color: red;
+}
+
+/* Add some hover effects to buttons */
+.form-container .btn:hover, .open-button:hover {
+  opacity: 1;
+}
+
+/*for button signup*/
+.form-popup1 {
+  margin-top: 110px;
+  display: none;
+  position: fixed;
+  top: 0;
+  right: 15px;
+  border: 3px solid #f1f1f1;
+  z-index: 9;
+}
+
+/* Add styles to the form container */
+.form-container1 {
+  max-width: 600px;
+  padding: 10px;
+  background-color: white;
+  color: black;
+}
+
+/* Full-width input fields */
+.form-container1 input[type=text], .form-container1 input[type=password], .form-container1 input[type=email]{
+  width: 50%;
+  padding: 15px;
+  margin: 5px 0 5px 0;
+  border: none;
+  background:#f1f1f1;
+}
+
+/* When the inputs get focus, do something */
+.form-container1 input[type=text]:focus, .form-container1 input[type=password]:focus {
+  background-color: #ddd;
+  outline: none;
+}
+
+/* Set a style for the submit/login button */
+.form-container1 .btn {
+  background-color: #4d79ff/*#4CAF50*/;
+  color: white;
+  padding: 8px 10px/*16px 20px*/;
+  border: none;
+  cursor: pointer;
+  margin-left: 80px;
+  width: 50%;
+  margin-bottom:10px;
+  opacity: 0.8;
+}
+
+/* Add a red background color to the cancel button */
+.form-container1 .cancel {
+  background-color: black;
+}
+
+/* Add some hover effects to buttons */
+.form-container1 .btn:hover, .open-button:hover {
+  opacity: 1;
+}
 </style>
 </head>
 <body>
@@ -202,9 +326,26 @@ section .buttontwo
 
                 <h1 class=""> A set Of Assets</h1></html></div>
                 <div class="menu">
-                <a href="#"></a>
+              
                 <a href="#">ABOUT</a>
                 <a href="#">CONTACT</a>
+                <a href="register.html">SIGN UP</a>
+      
+       <a href="#" onclick="openForm()">LOGIN</a>
+       <div class="form-popup" id="myForm" >
+         <form action="" class="form-container">
+           <h1 style="text-align: center;">LOGIN</h1><br><br>
+
+           <label for="username"><b>User Name</b></label>
+           <input type="text" placeholder="Enter User Name" name="email" required>
+
+           <label for="psw"><b>Password</b></label>
+           <input type="password" placeholder="Enter Password" name="psw" required>
+
+           <button type="submit" class="btn" onclick="home.html">Login</button>
+           <button type="submit" class="btn cancel" onclick="closeForm()">Close</button>
+         </form>
+       </div>   
                 </div>
             </nav>
                 <main>
@@ -220,34 +361,36 @@ section .buttontwo
                          <span>E</span>
                     </h1>
                      <p>Your assetsss</p>
-                     <a href="#" class="buttonone">SIGN UP</a>
-                     <a href="#" class="buttontwo">LOGIN</a>    
-                
+                   
+                    <!-- <a href="#" class="buttontwo">LOGIN</a>-->
+
+                    
+
                      <article style="margin-top: 50px;" >
                         <div  class="slideshow-container">
-                    
+
                             <div class="mySlides fade">
                               <!-- <div class="numbertext">1 / 3</div> -->
-                              <img src="phone.jpg" style="width:170%">
+                              <img src="phone.jpg" style="width:220%">
                               <!-- <div class="text">Caption Text</div> -->
                             </div>
-                            
+
                             <div class="mySlides fade">
                               <!-- <div class="numbertext">2 / 3</div> -->
-                              <img src="head.jpg" style="width:170%">
+                              <img src="head.jpg" style="width:220%">
                               <!-- <div class="text">Caption Two</div> -->
                             </div>
-                            
+
                             <div class="mySlides fade">
                                 <!-- <div class="numbertext">2 / 3</div> -->
-                                <img src="laptop.png" style="width:170%">
+                                <img src="laptop.png" style="width:220%">
                                 <!-- <div class="text">Caption Two</div> -->
                               </div>
-                              
-                       
+
+
                             </div>
                             <br>
-                            
+
                             <div style="text-align:center">
                               <span class="dot"></span> 
                               <span class="dot"></span> 
@@ -256,10 +399,10 @@ section .buttontwo
                     </article>
                     </section>
                 </main>
-                
+
 
             </div>
-       
+
     </header>
     <footer>
         <p>Footer</p>
@@ -267,7 +410,7 @@ section .buttontwo
     <script>
         var slideIndex = 0;
         showSlides();
-        
+
         function showSlides() {
           var i;
           var slides = document.getElementsByClassName("mySlides");
@@ -282,7 +425,22 @@ section .buttontwo
           }
           slides[slideIndex-1].style.display = "block";  
           dots[slideIndex-1].className += " active";
-          setTimeout(showSlides, 2000); // Change image every 2 seconds
+          setTimeout(showSlides, 3000); // Change image every 2 seconds
         }
+        function openForm1() {
+  document.getElementById("myForm1").style.display = "block";
+}
+
+function closeForm1() {
+  document.getElementById("myForm1").style.display = "none";
+}
+        function openForm() {
+  document.getElementById("myForm").style.display = "block";
+}
+
+function closeForm() {
+  document.getElementById("myForm").style.display = "none";
+}
         </script>
 </body>
+</html>
