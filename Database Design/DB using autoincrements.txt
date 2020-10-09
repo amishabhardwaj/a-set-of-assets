@@ -1,39 +1,35 @@
+// Tables
 
 
-// Table Schema
+Users
+Category
+Asset
+Borrow
+OverDue
 
-create table Users(Userid int NOT NULL GENERATED ALWAYS AS IDENTITY (START WITH 1, INCREMENT BY 1) primary key,Username varchar(50),Name varchar(50),Phone_Number varchar(50),Email varchar(30),Last_Login_Time timestamp);
 
-create table Authentication(Userid int references Users(Userid),Password varchar(50),Role varchar(50));
+// Table Design
+
+create table Users(Userid int NOT NULL GENERATED ALWAYS AS IDENTITY (START WITH 1, INCREMENT BY 1) primary key,Username varchar(50),Name varchar(50),Phone_Number varchar(50),Email varchar(30),Last_Login_Time timestamp,Password varchar(50),Role varchar(50));
 
 create table Category(Category_Name varchar(50) primary key,Lending_Period int,Ban_Period int,Fine_Per_Day int);
 
 create table Asset(Assetid int NOT NULL GENERATED ALWAYS AS IDENTITY (START WITH 1, INCREMENT BY 1) primary key,Category_Name varchar(50) references Category(Category_Name),Subcategory varchar(50),Feature_Description varchar(100),Date_Added date,Is_Available boolean);
 
-
-
 create table Borrow(Transactionid int NOT NULL GENERATED ALWAYS AS IDENTITY (START WITH 1, INCREMENT BY 1) primary key,Userid int references Users(Userid),Assetid int references Asset(Assetid),Issue_Date date,Due_Date date,Return_Date date,Borrow_Status varchar(50));
 
 create table OverDueTransactions(TransactioniD int references Borrow(Transactionid),Ban_Start_Date date,is_Fine_Paid boolean,is_Ban_Finished boolean,Message varchar(100));
 
+
 // User Table Insertion
 
-insert into Users(Username,Name,Phone_Number,Email,Last_Login_Time) values('IronMan234','Tony Stark','1234562345','tony@gmail.com','1999-01-01 03:20:30');
+insert into Users(Username,Name,Phone_Number,Email,Last_Login_Time,Password,Role) values('IronMan234','Tony Stark','1234562345','tony@gmail.com','1999-01-01 03:20:30','Pass@123','Admin');
 
-insert into Users(Username,Name,Phone_Number,Email,Last_Login_Time) values('CaptainAmerica145','Steve Rogers','2634562345','cap@gmail.com','1999-01-02 05:20:30');
+insert into Users(Username,Name,Phone_Number,Email,Last_Login_Time,Password,Role) values('CaptainAmerica145','Steve Rogers','2634562345','cap@gmail.com','1999-01-02 05:20:30','Pass@123','Borrower');
 
-insert into Users(Username,Name,Phone_Number,Email,Last_Login_Time) values('blackwidow565','Natasha','6734562345','agentNR@gmail.com','1998-01-01 01:20:30');
+insert into Users(Username,Name,Phone_Number,Email,Last_Login_Time,Password,Role) values('blackwidow565','Natasha','6734562345','agentNR@gmail.com','1998-01-01 01:20:30','Pass@123','Borrower');
 
-insert into Users(Username,Name,Phone_Number,Email,Last_Login_Time) values('hulk','Banner','9234562345','greenman@gmail.com','1969-01-01 13:20:30');
-
-
-// Authentication Table
-
-
-insert into Authentication values(1,'Pass@123','Admin');
-insert into Authentication values(2,'Pass@123','Borrower');
-insert into Authentication values(3,'Pass@123','Borrower');
-insert into Authentication values(4,'Pass@123','Borrower');
+insert into Users(Username,Name,Phone_Number,Email,Last_Login_Time,Password,Role) values('hulk','Banner','9234562345','greenman@gmail.com','1969-01-01 13:20:30','Pass@123','Borrower');
 
 
 // Insertion into Category
