@@ -1,7 +1,11 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+	pageEncoding="ISO-8859-1" import="java.util.List,java.util.List,java.io.*,java.util.*,com.hsbc.dao.AssetDao"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Assets Check</title>
+<meta charset="ISO-8859-1">
+<title>Assets Check</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
   /* Split the screen in half */
@@ -197,39 +201,34 @@ ol {
   <br><br><br><br><br>
     <h2 style="text-shadow: 4px 4px 2px #A0A0A0" align="center">Assets Available</h2><br>
     <p align="center">You can choose from the variety of assests available <br>exclusively for your comfort at a single click..</p><hr><br>
-    <form action="">
-      <label for="assets">Choose a asset:</label>
-      <select name="asset" id="asset">
-          <option value="Select"></option>        
-        <optgroup label="Laptop">
-          <option value="Dell">Dell</option>
-          <option value="Lenovo">Lenovo</option>
-          <option value="HP">Hp</option>
-        </optgroup>
-        <optgroup label="Mobile">
-          <option value="Samsung">Samsung</option>
-          <option value="Apple">Apple</option>
-          <option value="Xiomi">Xiomi</option>
-        </optgroup>
-        <optgroup label="Book">
-          <option value="Java">Java for Beginners</option>
-          <option value="C">Let us C</option>
-          <option value="C++">Introduction to programming</option>
-        </optgroup>
-        <optgroup label="Headset">
-          <option value="Jabra">Jabra</option>
-          <option value="Sony">Sony</option>
-          <option value="JBL">JBL</option>
-        </optgroup>
-      </select>
-    </form><br><br>
-    <p align="center">
-    Available Quantity : <br><br>
-    Quantity to be borrowed : 1 <br><br>
-    <input type="submit" name="Add" value="Add">
-    </p>
-  <br>
-  <hr>
+<%
+AssetDao dao=new AssetDao();
+ArrayList<Asset> assetList=dao.getLendableAssets(101);
+pageContext.setAttribute("asset",assetList);
+%>
+<table border=5>
+		<tr>
+			<th>Asset ID</th>
+			<th>Category</th>
+			<th>Sub-Category</th>
+			<th>Feature Description</th>
+			<th>Date Added</th>
+			<th>Available</th>
+			<th>Borrow</th>
+		</tr>
+		<c:forEach var="asset" items="${asset}">
+		<tr>
+				<td>${asset.ASSETID}</td>
+				<td>${asset.CATEGORY_NAME}</td>
+				<td>${asset.SUBCATEGORY}</td>
+				<td>${asset.FEATURE_DESCRIPTION}</td>
+				<td>${asset.DATE_ADDED}</td>
+				<td>${asset.IS_AVAILABLE}</td>	
+				<td><a href="BorrowAsset?action=BORROW & assetIdToBorrow=${asset.ASSETID}">Borrow</a></td>
+		</tr>
+		</c:forEach>
+		</table>
+		<hr>
 </div>
 <footer>
         <p><b>Copyright</b></p>
