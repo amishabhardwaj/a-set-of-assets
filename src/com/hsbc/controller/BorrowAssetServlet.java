@@ -76,6 +76,9 @@ public class BorrowAssetServlet extends HttpServlet {
 			e.printStackTrace();
 		}
 		
+		// Update the Asset Table to change IS_AVAILABLE of that asset to false
+		boolean availableStatusChanged = assetDao.changeIsAvailableToFalse(assetIdToBorrow);
+		
 		// Show user a message that his borrow is successful in frontend based on this session attribute
 		// Change the Scope of this variable to something lesser if you want the user to borrow more than one assets in single login session
 		if(borrowTableUpdateStatus) {

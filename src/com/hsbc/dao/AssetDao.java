@@ -80,5 +80,20 @@ public class AssetDao {
 		}
 		return null;
 	}
+	
+	public boolean changeIsAvailableToFalse(int assetId) {
+		String changeIsAvailable = "UPDATE ASSET SET IS_AVAILABLE=FALSE WHERE ASSETID=?";
+		Connection conn = DBConnection.getConnection();
+		try {
+			PreparedStatement prst = conn.prepareStatement(changeIsAvailable,ResultSet.TYPE_SCROLL_INSENSITIVE,
+					ResultSet.CONCUR_UPDATABLE);
+			prst.setInt(1,assetId);
+			int rowsChanged = prst.executeUpdate();
+			return true;
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return false;
+	}
 
 }

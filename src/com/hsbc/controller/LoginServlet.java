@@ -15,12 +15,12 @@ public class LoginServlet extends HttpServlet {
 		String password = request.getParameter("password");
 		AuthenticationDao authDao = new AuthenticationDao();
 		/*
-		The function verifyCredentials(username, password) is written assuming that USERNAME and PASSWORD are stored in USERS table, If not then move the verifyCredentials(username, password) function from UserBeanDao to 
+		The function verifyCredentials(userid, password) is written assuming that USERNAME and PASSWORD are stored in USERS table, If not then move the verifyCredentials(username, password) function from UserBeanDao to 
 		 */
 		if(authDao.verifyCredentials(userid, password)) {
 			HttpSession session = request.getSession();
 			session.setAttribute("userid", userid);
-			response.sendRedirect("welcome.jsp");
+			response.sendRedirect("borrowAssets.jsp");
 		} else {
 			response.sendRedirect("login.jsp");
 		}
