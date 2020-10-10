@@ -188,7 +188,29 @@ ol {
 	<br><br><br><br><br>
     <h2 style="text-shadow: 4px 4px 2px #A0A0A0" align="center">Import Users</h2><br><br><br>
   
-<form method="post" action="ImportUserTable.html">
+  <script>
+		
+			function validate(){
+
+				var name = document.getElementById("name").value;
+				var role = document.getElementById("r1").value;
+				var phone = document.getElementById("phone").value;
+				var mail = document.getElementById("mail").value;
+				var uname = document.getElementById("uname").value;
+				var pass = document.getElementById("pass").value;
+				
+				if(name=="" && phone="" && mail=="" && uname="" && pass="" && role="")
+				{
+					alert("All fields are mandatory!");
+					return false;
+				}
+			
+				
+			}
+			 
+</script>
+  
+<form method="post" onclick="validate()" action="ImportUserTable.html">
 
 
 		<table >
