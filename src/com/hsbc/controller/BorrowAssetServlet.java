@@ -74,7 +74,8 @@ public class BorrowAssetServlet extends HttpServlet {
 		// User will send his selections from HTML Form, Accept details from form
 		
 		// User can lend only one item at a time, Data being sent by HTML Form
-		int assetIdToBorrow = Integer.parseInt(request.getParameter("assetIdToBorrow"));
+		// THIS LINE THROWS java.lang.NumberFormatException: IF PROPER VALUE NOT SENT FROM FRONTEND
+		// int assetIdToBorrow = Integer.parseInt(request.getParameter("assetIdToBorrow"));
 		
 		// Update Borrow Table
 		boolean borrowTableUpdateStatus=false;

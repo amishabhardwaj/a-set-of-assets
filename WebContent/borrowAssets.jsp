@@ -229,13 +229,13 @@ System.out.println(assetList);
 		</tr>
 		<c:forEach var="a" items="${asset}">
 		<tr>
-				<!--<td>${a.assetId}</td>  -->
+				<td>${a.assetId}</td>
 				<td>${a.category}</td>
 				<td>${a.subcategory}</td>
 				<td>${a.featureDescription}</td>
 				<td>${a.dateAdded}</td>
 				<td>${a.isAvailable}</td>	
-				<!--<td><a href="BorrowAsset?action=BORROW & assetIdToBorrow=${asset.assetId}">Borrow</a></td>  -->
+				<td><a href="BorrowAsset?action=BORROW & assetIdToBorrow=${a.assetId}">Borrow</a></td> 
 		</tr>
 		</c:forEach>
 		</table>
