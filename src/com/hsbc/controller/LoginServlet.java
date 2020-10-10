@@ -23,12 +23,18 @@ public class LoginServlet extends HttpServlet {
 		if(authDao.verifyCredentials(userid, password)) {
 			User currentUser = userDao.fetchUserDetails(userid);
 			boolean lastLoginUpdated = userDao.updateLastLogin(userid);
-			
+			String role = authDao.getRole(userid);
+					
 			HttpSession session = request.getSession();
 			session.setAttribute("userid", userid);
 			session.setAttribute("currentUser",currentUser);
 			
-			response.sendRedirect("borrowAssets.jsp");
+			if(role.equals("Admin")) {
+				response.sendRedirect("AdminHome.jsp");
+			} else {
+				response.sendRedirect("borrowAssets.jsp");
+			}
+			
 		} else {
 			response.sendRedirect("login.jsp");
 		}

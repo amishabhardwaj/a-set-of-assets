@@ -27,7 +27,7 @@ public class AssetDao {
 
 		// This query will fetch all CATEGORIES which the user has already borrowed and
 		// not returned
-		String fetchCategoryOfIssued = "SELECT CATEGORY_NAME FROM ASSET IN (SELECT ASSETID FROM BORROW WHERE USERID=? AND BORROWSTATUS='OPEN')";
+		String fetchCategoryOfIssued = "SELECT CATEGORY_NAME FROM ASSET WHERE ASSETID IN(SELECT ASSETID FROM BORROW WHERE USERID=? AND BORROW_STATUS='OPEN')";
 
 		// This query will fetch all CATEGORIES available in the system
 		// String fetchAllCategories = "SELECT CATEGORY_NAME FROM CATEGORY";
@@ -41,7 +41,9 @@ public class AssetDao {
 			HashSet<String> categoriesAlreadyHeld = new HashSet<>();
 			PreparedStatement prst2 = conn.prepareStatement(fetchCategoryOfIssued, ResultSet.TYPE_SCROLL_INSENSITIVE,
 					ResultSet.CONCUR_UPDATABLE);
+			prst2.setInt(1,userId);
 			ResultSet rs2 = prst2.executeQuery();
+			// Add all held categories to HashSet
 			while (rs2.next()) {
 				categoriesAlreadyHeld.add(rs2.getString("CATEGORY_NAME"));
 			}

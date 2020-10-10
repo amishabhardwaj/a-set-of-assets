@@ -13,7 +13,7 @@ public class DBConnection {
 	public static Connection getConnection() {
 		try {
 			DriverManager.registerDriver(new org.apache.derby.jdbc.ClientDriver());
-			conn = DriverManager.getConnection("jdbc:derby://localhost:1527/loginDB");
+			conn = DriverManager.getConnection("jdbc:derby://localhost:1527/codefury");
 		} catch (SQLException e) {
 			System.out.println(e.getMessage());
 		}

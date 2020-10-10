@@ -58,5 +58,24 @@ public class AuthenticationDao {
 		}
 		return false;
 	}
+	
+	public String getRole(int userid) {
+		String role = null;
+		String roleQuery = "SELECT ROLE FROM AUTHENTICATION WHERE USERID=?";
+		Connection conn = DBConnection.getConnection();
+		try {
+			PreparedStatement prst = conn.prepareStatement(roleQuery);
+			prst.setInt(1, userid);
+			ResultSet rs = prst.executeQuery();
+			if(rs.next()) {
+				role = rs.getString("ROLE");
+			}
+			return role;
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return role;
+	}
 
 }

@@ -23,7 +23,7 @@ public class UserDao {
 				currentUser.setUserId(rs.getInt("USERID"));
 				currentUser.setUserName(rs.getString("USERNAME"));
 				currentUser.setName(rs.getString("NAME"));
-				currentUser.setPhoneNumber(rs.getString("PHONENUMBER"));
+				currentUser.setPhoneNumber(rs.getString("PHONE_NUMBER"));
 				currentUser.setEmail(rs.getString("EMAIL"));
 				currentUser.setLastLoginTime(rs.getDate("LAST_LOGIN_TIME"));
 			}
