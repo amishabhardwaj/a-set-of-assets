@@ -1,27 +1,31 @@
 package com.hsbc.models;
-
 import java.util.Date;
 
-public class UserBean {
+public class User {
 
 	private int userId;
 	private String userName;
-	private String Name;
+	private String name;
 	private String phoneNumber;
 	private String email;
 	private Date lastLoginTime;
+	private String password;
+	private String role;
 
-	public UserBean() {
+	public User() {
 	}
 
-	public UserBean(int userId, String userName, String name, String phoneNumber, String email, Date lastLoginTime) {
+	public User(int userId, String userName, String name, String phoneNumber, String email, Date lastLoginTime,
+			String password, String role) {
 		super();
 		this.userId = userId;
 		this.userName = userName;
-		Name = name;
+		this.name = name;
 		this.phoneNumber = phoneNumber;
 		this.email = email;
 		this.lastLoginTime = lastLoginTime;
+		this.password = password;
+		this.role = role;
 	}
 
 	public int getUserId() {
@@ -41,11 +45,11 @@ public class UserBean {
 	}
 
 	public String getName() {
-		return Name;
+		return name;
 	}
 
 	public void setName(String name) {
-		Name = name;
+		this.name = name;
 	}
 
 	public String getPhoneNumber() {
@@ -72,10 +76,28 @@ public class UserBean {
 		this.lastLoginTime = lastLoginTime;
 	}
 
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
+
+	public String getRole() {
+		return role;
+	}
+
+	public void setRole(String role) {
+		this.role = role;
+	}
+
 	@Override
 	public String toString() {
-		return "User [userId=" + userId + ", userName=" + userName + ", Name=" + Name + ", phoneNumber=" + phoneNumber
-				+ ", email=" + email + ", lastLoginTime=" + lastLoginTime + "]";
+		return "User [userId=" + userId + ", userName=" + userName + ", name=" + name + ", phoneNumber=" + phoneNumber
+				+ ", email=" + email + ", lastLoginTime=" + lastLoginTime + ", password=" + password + ", role=" + role
+				+ "]";
 	}
+
 
 }

@@ -6,7 +6,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import com.hsbc.models.Authentication;
-import com.hsbc.models.UserBean;
+import com.hsbc.models.User;
 
 public class AuthenticationDao {
 	// UserBean user = new UserBean();
