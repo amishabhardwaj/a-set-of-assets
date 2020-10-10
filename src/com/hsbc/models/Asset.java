@@ -5,22 +5,29 @@ import java.time.LocalDate;
 import java.util.Date;
 
 public class Asset {
-
 	private int assetId;
-	private String Category;
+	private String category;
 	private String subcategory;
 	private String featureDescription;
 	private Date dateAdded;
 	private boolean isAvailable;
+	
+	public Asset(){
+		
+	}
 
-	public Asset() {
+	@Override
+	public String toString() {
+		return "Asset [assetId=" + assetId + ", category=" + category + ", subcategory=" + subcategory
+				+ ", featureDescription=" + featureDescription + ", dateAdded=" + dateAdded + ", isAvailable="
+				+ isAvailable + "]";
 	}
 
 	public Asset(int assetId, String category, String subcategory, String featureDescription, Date dateAdded,
 			boolean isAvailable) {
 		super();
 		this.assetId = assetId;
-		Category = category;
+		this.category = category;
 		this.subcategory = subcategory;
 		this.featureDescription = featureDescription;
 		this.dateAdded = dateAdded;
@@ -36,11 +43,11 @@ public class Asset {
 	}
 
 	public String getCategory() {
-		return Category;
+		return category;
 	}
 
 	public void setCategory(String category) {
-		Category = category;
+		this.category = category;
 	}
 
 	public String getSubcategory() {
@@ -67,19 +74,12 @@ public class Asset {
 		this.dateAdded = dateAdded;
 	}
 
-	public boolean isAvailable() {
+	public boolean getIsAvailable() {
 		return isAvailable;
 	}
 
-	public void setAvailable(boolean isAvailable) {
+	public void setIsAvailable(boolean isAvailable) {
 		this.isAvailable = isAvailable;
-	}
-
-	@Override
-	public String toString() {
-		return "Asset [assetId=" + assetId + ", Category=" + Category + ", subcategory=" + subcategory
-				+ ", featureDescription=" + featureDescription + ", dateAdded=" + dateAdded + ", isAvailable="
-				+ isAvailable + "]";
 	}
 
 }

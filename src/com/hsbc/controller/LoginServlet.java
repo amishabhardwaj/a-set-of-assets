@@ -2,6 +2,8 @@ package com.hsbc.controller;
 
 import java.io.IOException;
 
+import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -32,7 +34,12 @@ public class LoginServlet extends HttpServlet {
 			if(role.equals("Admin")) {
 				response.sendRedirect("AdminHome.jsp");
 			} else {
-				response.sendRedirect("borrowAssets.jsp");
+				RequestDispatcher rd=request.getRequestDispatcher("BorrowAssetServlet");  
+				try {
+					rd.forward(request,response);
+				} catch (ServletException | IOException e) {
+					e.printStackTrace();
+				}		
 			}
 			
 		} else {

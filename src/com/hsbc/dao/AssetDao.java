@@ -21,6 +21,7 @@ public class AssetDao {
 	 *         This function hits Borrow and Category Table too
 	 */
 	public ArrayList<Asset> getLendableAssets(int userId) {
+		ArrayList<Asset> assetList = new ArrayList<>();
 		// First select what has has this user already issued
 		// String fetchAssetId = "SELECT ASSETID FROM BORROW WHERE USERID=?"; // Not
 		// used if fetchCategoryOfIssued Query works
@@ -73,7 +74,6 @@ public class AssetDao {
 			}
 			
 			// Make ArrayList<Asset> of remaining Assets
-			ArrayList<Asset> assetList = new ArrayList<>();
 			rs4.first();
 			do {
 				Asset ab = new Asset();
@@ -82,15 +82,26 @@ public class AssetDao {
 				ab.setSubcategory(rs4.getString("SUBCATEGORY"));
 				ab.setFeatureDescription(rs4.getString("FEATURE_DESCRIPTION"));
 				ab.setDateAdded(rs4.getDate("DATE_ADDED"));
-				ab.setAvailable(rs4.getBoolean("IS_AVAILABLE"));
+				ab.setIsAvailable(rs4.getBoolean("IS_AVAILABLE"));
 				assetList.add(ab);
 			} while (rs4.next());
+			
+			for(Asset a : assetList) {
+				System.out.println("************************8*");
+				System.out.println(a.getAssetId());
+				System.out.println(a.getCategory());
+				System.out.println(a.getSubcategory());
+				System.out.println(a.getFeatureDescription());
+				System.out.println(a.getDateAdded());
+				System.out.println(a.getIsAvailable());
+			}
+			
 			return assetList;
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		return null;
+		return assetList;
 	}
 
 	public boolean changeIsAvailableToFalse(int assetId) {

@@ -29,15 +29,16 @@ import com.hsbc.models.Overdue;
  *
  */
 public class BorrowAssetServlet extends HttpServlet {
+
 	public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
+		System.out.println("aaaaaaaaaaaaa");
 		// Check if user is logged in
 		HttpSession session = request.getSession();
 		if(session.getAttribute("userid")==null) {
 			RequestDispatcher rd = request.getRequestDispatcher("login.jsp");
 			rd.forward(request, response);
 		}
-		
+		System.out.println("bbbbbbbbbbb");
 		// Above lines confirmed user's login, Now fetch his username
 		int userId = (int) session.getAttribute("userid");
 		
@@ -45,7 +46,7 @@ public class BorrowAssetServlet extends HttpServlet {
 		BorrowDao borrowDao = new BorrowDao();
 		OverdueDao overdueDao = new OverdueDao();
 		AssetDao assetDao = new AssetDao();
-		
+		System.out.println("ccccccccccc");
 		// No need as we are logging in using userid
 		// Get userId from username
 		// int userId = authDao.getUserIdFromUsername(username);
@@ -56,9 +57,13 @@ public class BorrowAssetServlet extends HttpServlet {
 			// Use this Variable in JSP to tell user he cant borrow
 			session.setAttribute("isBanFinished","false");
 		}
-		
+		System.out.println("dddddddddddddd");
 		// Get List of assets to display (Excludes Categories he has already lended)
 		ArrayList<Asset> assetsAvailable = assetDao.getLendableAssets(userId); 
+		
+		System.out.println("5555555555555555555555555555555555555555555");
+		System.out.println(assetsAvailable);
+		System.out.println("5555555555555555555555555555555555555555555");
 		
 		// USE THIS ATTRIBUTE IN FRONTEND TO SHOW LIST OF AVAILABLE PRODUCTS TO BORROW
 		session.setAttribute("assetsAvailable",assetsAvailable); // These Assets will be displayed to User
