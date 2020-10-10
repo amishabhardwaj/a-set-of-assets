@@ -1,31 +1,51 @@
 package com.hsbc.models;
 
-import java.time.LocalDateTime;
+import java.util.Date;
 
 public class UserBean {
-	int userId; //AutoInc
-	String username; //Send
-	String password; //Send
-	String name;
-	Role role;
-	String phoneNumber;
-	String email; // 
-	LocalDateTime lastLogin;
+
+	private int userId;
+	private String userName;
+	private String Name;
+	private String phoneNumber;
+	private String email;
+	private Date lastLoginTime;
+
+	public UserBean() {
+	}
+
+	public UserBean(int userId, String userName, String name, String phoneNumber, String email, Date lastLoginTime) {
+		super();
+		this.userId = userId;
+		this.userName = userName;
+		Name = name;
+		this.phoneNumber = phoneNumber;
+		this.email = email;
+		this.lastLoginTime = lastLoginTime;
+	}
+
+	public int getUserId() {
+		return userId;
+	}
+
+	public void setUserId(int userId) {
+		this.userId = userId;
+	}
+
+	public String getUserName() {
+		return userName;
+	}
+
+	public void setUserName(String userName) {
+		this.userName = userName;
+	}
 
 	public String getName() {
-		return name;
+		return Name;
 	}
 
 	public void setName(String name) {
-		this.name = name;
-	}
-
-	public Role getRole() {
-		return role;
-	}
-
-	public void setRole(Role role) {
-		this.role = role;
+		Name = name;
 	}
 
 	public String getPhoneNumber() {
@@ -44,27 +64,18 @@ public class UserBean {
 		this.email = email;
 	}
 
-	public LocalDateTime getLastLogin() {
-		return lastLogin;
+	public Date getLastLoginTime() {
+		return lastLoginTime;
 	}
 
-	public void setLastLogin(LocalDateTime lastLogin) {
-		this.lastLogin = lastLogin;
+	public void setLastLoginTime(Date lastLoginTime) {
+		this.lastLoginTime = lastLoginTime;
 	}
 
-	public String getUsername() {
-		return username;
+	@Override
+	public String toString() {
+		return "User [userId=" + userId + ", userName=" + userName + ", Name=" + Name + ", phoneNumber=" + phoneNumber
+				+ ", email=" + email + ", lastLoginTime=" + lastLoginTime + "]";
 	}
 
-	public void setUsername(String username) {
-		this.username = username;
-	}
-
-	public String getPassword() {
-		return password;
-	}
-
-	public void setPassword(String password) {
-		this.password = password;
-	}
 }
