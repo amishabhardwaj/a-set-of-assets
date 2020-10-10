@@ -205,6 +205,7 @@ ol {
 AssetDao dao=new AssetDao();
 ArrayList<Asset> assetList=dao.getLendableAssets(101);
 pageContext.setAttribute("asset",assetList);
+int userid = (Integer)session.getAttribute("userid");
 %>
 <table border=5>
 		<tr>
