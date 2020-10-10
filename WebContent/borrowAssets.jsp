@@ -217,14 +217,14 @@ int userid = (Integer)session.getAttribute("userid");
 			<th>Available</th>
 			<th>Borrow</th>
 		</tr>
-		<c:forEach var="asset" items="${asset}">
+		<c:forEach var="a" items="${asset}">
 		<tr>
-				<td>${asset.ASSETID}</td>
-				<td>${asset.CATEGORY_NAME}</td>
-				<td>${asset.SUBCATEGORY}</td>
-				<td>${asset.FEATURE_DESCRIPTION}</td>
-				<td>${asset.DATE_ADDED}</td>
-				<td>${asset.IS_AVAILABLE}</td>	
+				<td>${a.assetId}</td>
+				<td>${a.Category}</td>
+				<td>${a.subcategory}</td>
+				<td>${a.featureDescription}</td>
+				<td>${a.dateAdded}</td>
+				<td>${a.isAvailable}</td>	
 				<td><a href="BorrowAsset?action=BORROW & assetIdToBorrow=${asset.ASSETID}">Borrow</a></td>
 		</tr>
 		</c:forEach>

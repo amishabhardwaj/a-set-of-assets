@@ -41,9 +41,9 @@ public class AssetDao {
 			HashSet<String> categoriesAlreadyHeld = new HashSet<>();
 			PreparedStatement prst2 = conn.prepareStatement(fetchCategoryOfIssued, ResultSet.TYPE_SCROLL_INSENSITIVE,
 					ResultSet.CONCUR_UPDATABLE);
-			prst2.setInt(1,userId);
+			prst2.setInt(1, userId);
 			ResultSet rs2 = prst2.executeQuery();
-			// Add all held categories to HashSet
+			// Add held categories to HashSet
 			while (rs2.next()) {
 				categoriesAlreadyHeld.add(rs2.getString("CATEGORY_NAME"));
 			}
@@ -61,7 +61,7 @@ public class AssetDao {
 				}
 			}
 
-			// Now fetch all assets of canBorrow category and return
+			// Make ArrayList<Asset> of remaining Assets
 			ArrayList<Asset> assetList = new ArrayList<>();
 			rs4.first();
 			do {
@@ -74,7 +74,6 @@ public class AssetDao {
 				ab.setAvailable(rs4.getBoolean("IS_AVAILABLE"));
 				assetList.add(ab);
 			} while (rs4.next());
-
 			return assetList;
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -82,14 +81,14 @@ public class AssetDao {
 		}
 		return null;
 	}
-	
+
 	public boolean changeIsAvailableToFalse(int assetId) {
 		String changeIsAvailable = "UPDATE ASSET SET IS_AVAILABLE=FALSE WHERE ASSETID=?";
 		Connection conn = DBConnection.getConnection();
 		try {
-			PreparedStatement prst = conn.prepareStatement(changeIsAvailable,ResultSet.TYPE_SCROLL_INSENSITIVE,
+			PreparedStatement prst = conn.prepareStatement(changeIsAvailable, ResultSet.TYPE_SCROLL_INSENSITIVE,
 					ResultSet.CONCUR_UPDATABLE);
-			prst.setInt(1,assetId);
+			prst.setInt(1, assetId);
 			int rowsChanged = prst.executeUpdate();
 			return true;
 		} catch (SQLException e) {
