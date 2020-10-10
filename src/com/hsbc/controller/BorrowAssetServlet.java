@@ -58,8 +58,6 @@ public class BorrowAssetServlet extends HttpServlet {
 		}
 		
 		// Get List of assets to display (Excludes Categories he has already lended)
-		
-		// getLendableAssets(userId); IN AssetBeanDao IS INCOMPLETE
 		ArrayList<Asset> assetsAvailable = assetDao.getLendableAssets(userId); 
 		
 		// USE THIS ATTRIBUTE IN FRONTEND TO SHOW LIST OF AVAILABLE PRODUCTS TO BORROW
