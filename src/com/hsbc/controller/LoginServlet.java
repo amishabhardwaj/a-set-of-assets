@@ -34,7 +34,7 @@ public class LoginServlet extends HttpServlet {
 			if(role.equals("Admin")) {
 				response.sendRedirect("AdminHome.jsp");
 			} else {
-				RequestDispatcher rd=request.getRequestDispatcher("BorrowAssetServlet");  
+				RequestDispatcher rd=request.getRequestDispatcher("borrowAssetServlet");  
 				try {
 					rd.forward(request,response);
 				} catch (ServletException | IOException e) {

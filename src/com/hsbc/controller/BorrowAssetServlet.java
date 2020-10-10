@@ -55,6 +55,7 @@ public class BorrowAssetServlet extends HttpServlet {
 		boolean dontLend = overdueDao.checkIfOverdue(userId);
 		if(dontLend) {
 			// Use this Variable in JSP to tell user he cant borrow
+			// If isBanFinished is FALSE then dont show him Assets
 			session.setAttribute("isBanFinished","false");
 		}
 		System.out.println("dddddddddddddd");
@@ -68,6 +69,8 @@ public class BorrowAssetServlet extends HttpServlet {
 		// USE THIS ATTRIBUTE IN FRONTEND TO SHOW LIST OF AVAILABLE PRODUCTS TO BORROW
 		session.setAttribute("assetsAvailable",assetsAvailable); // These Assets will be displayed to User
 		
+		RequestDispatcher rd = request.getRequestDispatcher("borrowAssets.jsp");
+		rd.forward(request,response);
 		// User will send his selections from HTML Form, Accept details from form
 		
 		// User can lend only one item at a time, Data being sent by HTML Form

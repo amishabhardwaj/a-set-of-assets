@@ -46,7 +46,7 @@
 	
 	<servlet>
 		<servlet-name>borrowAssetServlet</servlet-name>
-		<servlet-class>com.hsbc.controller.BorrowAsssetServlet</servlet-class>
+		<servlet-class>com.hsbc.controller.BorrowAssetServlet</servlet-class>
 	</servlet>
 
 	<servlet-mapping>

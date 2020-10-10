@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1" import="java.util.List,java.util.List,java.io.*,java.util.*,com.hsbc.dao.AssetDao, com.hsbc.models.Asset"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -149,6 +150,9 @@ ol {
 </style>
 </head>
 <body>
+<script>
+
+</script>
 <div class="topnav">
   <a href="UserHomepage.html">Home</a>
   <a class="active" href="">Assets</a>
@@ -202,11 +206,17 @@ ol {
     <h2 style="text-shadow: 4px 4px 2px #A0A0A0" align="center">Assets Available</h2><br>
     <p align="center">You can choose from the variety of assests available <br>exclusively for your comfort at a single click..</p><hr><br>
 <%
-AssetDao dao=new AssetDao();
+// AssetDao dao=new AssetDao();
 int userid = (Integer)session.getAttribute("userid");
-ArrayList<Asset> assetList=dao.getLendableAssets(userid);
+// ArrayList<Asset> assetList= (ArrayList<Asset>)dao.getLendableAssets(userid);
+ArrayList<Asset> assetList= (ArrayList<Asset>) session.getAttribute("assetsAvailable");
 pageContext.setAttribute("asset",assetList);
+System.out.println(assetList);
+System.out.println(assetList);
 %>
+
+
+
 <table border=5>
 		<tr>
 			<th>Asset ID</th>
@@ -219,13 +229,13 @@ pageContext.setAttribute("asset",assetList);
 		</tr>
 		<c:forEach var="a" items="${asset}">
 		<tr>
-				<td>${a.assetId}</td>
-				<td>${a.Category}</td>
+				<!--<td>${a.assetId}</td>  -->
+				<td>${a.category}</td>
 				<td>${a.subcategory}</td>
 				<td>${a.featureDescription}</td>
 				<td>${a.dateAdded}</td>
 				<td>${a.isAvailable}</td>	
-				<td><a href="BorrowAsset?action=BORROW & assetIdToBorrow=${asset.ASSETID}">Borrow</a></td>
+				<!--<td><a href="BorrowAsset?action=BORROW & assetIdToBorrow=${asset.assetId}">Borrow</a></td>  -->
 		</tr>
 		</c:forEach>
 		</table>
