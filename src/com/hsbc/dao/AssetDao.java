@@ -60,7 +60,18 @@ public class AssetDao {
 					rs4.deleteRow();
 				}
 			}
-
+			
+			// Console Log for Debugging
+			rs4.beforeFirst();
+			while(rs4.next()) {
+				System.out.println(rs4.getInt("ASSETID"));
+				System.out.println(rs4.getString("CATEGORY_NAME"));
+				System.out.println(rs4.getString("SUBCATEGORY"));
+				System.out.println(rs4.getString("FEATURE_DESCRIPTION"));
+				System.out.println(rs4.getDate("DATE_ADDED"));
+				System.out.println(rs4.getBoolean("IS_AVAILABLE"));
+			}
+			
 			// Make ArrayList<Asset> of remaining Assets
 			ArrayList<Asset> assetList = new ArrayList<>();
 			rs4.first();

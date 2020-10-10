@@ -203,9 +203,9 @@ ol {
     <p align="center">You can choose from the variety of assests available <br>exclusively for your comfort at a single click..</p><hr><br>
 <%
 AssetDao dao=new AssetDao();
-ArrayList<Asset> assetList=dao.getLendableAssets(101);
-pageContext.setAttribute("asset",assetList);
 int userid = (Integer)session.getAttribute("userid");
+ArrayList<Asset> assetList=dao.getLendableAssets(userid);
+pageContext.setAttribute("asset",assetList);
 %>
 <table border=5>
 		<tr>
