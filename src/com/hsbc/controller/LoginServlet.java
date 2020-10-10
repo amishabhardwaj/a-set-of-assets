@@ -11,7 +11,7 @@ import com.hsbc.dao.AuthenticationDao;
 
 public class LoginServlet extends HttpServlet {
 	public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
-		int userid = Integer.parseInt(request.getParameter("username"));
+		int userid = Integer.parseInt(request.getParameter("userid"));
 		String password = request.getParameter("password");
 		AuthenticationDao authDao = new AuthenticationDao();
 		/*

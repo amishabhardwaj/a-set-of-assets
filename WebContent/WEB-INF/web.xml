@@ -43,6 +43,16 @@
 		<servlet-name>resetpassword</servlet-name>
 		<url-pattern>/resetpassword</url-pattern>
 	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>borrowAssetServlet</servlet-name>
+		<servlet-class>com.hsbc.controller.BorrowAsssetServlet</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>borrowAssetServlet</servlet-name>
+		<url-pattern>/borrowAssetServlet</url-pattern>
+	</servlet-mapping>
 	<welcome-file-list>
 		<welcome-file>index.html</welcome-file>
 		<welcome-file>index.htm</welcome-file>

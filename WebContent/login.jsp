@@ -9,15 +9,13 @@
 <body>
 	<h2>Login Form</h2>
 	<form method="post" action="login">
-		<label>Username :</label>
-		<input type="text" name="username"> <br> <br>
+		<label>Userid :</label>
+		<input type="text" name="userid"> <br> <br>
 		
 		<label>Password :</label>
 		<input type="password" name="password"> <br> <br>
 		
 		<input type="submit" name="Login">
 	</form>
-	
-	<a href="forgotPassword.jsp">Forgot Password?</a>
 </body>
 </html>

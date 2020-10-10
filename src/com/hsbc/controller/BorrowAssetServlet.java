@@ -33,21 +33,22 @@ public class BorrowAssetServlet extends HttpServlet {
 		
 		// Check if user is logged in
 		HttpSession session = request.getSession();
-		if(session.getAttribute("username")==null) {
+		if(session.getAttribute("userid")==null) {
 			RequestDispatcher rd = request.getRequestDispatcher("login.jsp");
 			rd.forward(request, response);
 		}
 		
 		// Above lines confirmed user's login, Now fetch his username
-		String username = (String) session.getAttribute("username");
+		int userId = (int) session.getAttribute("userid");
 		
 		AuthenticationDao authDao = new AuthenticationDao();
 		BorrowDao borrowDao = new BorrowDao();
 		OverdueDao overdueDao = new OverdueDao();
 		AssetDao assetDao = new AssetDao();
 		
+		// No need as we are logging in using userid
 		// Get userId from username
-		int userId = authDao.getUserIdFromUsername(username);
+		// int userId = authDao.getUserIdFromUsername(username);
 		
 		// Check if user is defaulter
 		boolean dontLend = overdueDao.checkIfOverdue(userId);
