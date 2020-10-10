@@ -60,9 +60,10 @@ public class BorrowAssetServlet extends HttpServlet {
 		
 		// getLendableAssets(userId); IN AssetBeanDao IS INCOMPLETE
 		ArrayList<Asset> assetsAvailable = assetDao.getLendableAssets(userId); 
+		
+		// USE THIS ATTRIBUTE IN FRONTEND TO SHOW LIST OF AVAILABLE PRODUCTS TO BORROW
 		session.setAttribute("assetsAvailable",assetsAvailable); // These Assets will be displayed to User
 		
-		// INCOMPLETE FROM HERE
 		// User will send his selections from HTML Form, Accept details from form
 		
 		// User can lend only one item at a time, Data being sent by HTML Form
