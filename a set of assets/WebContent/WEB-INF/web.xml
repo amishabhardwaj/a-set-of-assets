@@ -1,12 +1,87 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" id="WebApp_ID" version="3.0">
-  <display-name>a set of assets</display-name>
-  <welcome-file-list>
-    <welcome-file>index.html</welcome-file>
-    <welcome-file>index.htm</welcome-file>
-    <welcome-file>index.jsp</welcome-file>
-    <welcome-file>default.html</welcome-file>
-    <welcome-file>default.htm</welcome-file>
-    <welcome-file>default.jsp</welcome-file>
-  </welcome-file-list>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://java.sun.com/xml/ns/javaee"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
+	id="WebApp_ID" version="3.0">
+	<display-name>a set of assets</display-name>
+
+
+	<servlet>
+		<servlet-name>ByNameServlet</servlet-name>
+		<servlet-class>com.hsbc.controller.ByNameServlet</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>ByNameServlet</servlet-name>
+		<url-pattern>/byname</url-pattern>
+	</servlet-mapping>
+
+
+
+
+
+
+	<servlet>
+		<servlet-name>ByDateServlet</servlet-name>
+		<servlet-class>com.hsbc.controller.ByDateServlet</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>ByDateServlet</servlet-name>
+		<url-pattern>/bydate</url-pattern>
+	</servlet-mapping>
+
+
+
+
+
+
+
+
+
+	<servlet>
+		<servlet-name>ByCategoryServlet</servlet-name>
+		<servlet-class>com.hsbc.controller.ByCategoryServlet</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>ByCategoryServlet</servlet-name>
+		<url-pattern>/bycategory</url-pattern>
+	</servlet-mapping>
+
+
+
+
+
+
+
+	<servlet>
+		<servlet-name>SendMessage</servlet-name>
+		<servlet-class>com.hsbc.controller.SendMessageServlet</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>SendMessage</servlet-name>
+		<url-pattern>/send</url-pattern>
+	</servlet-mapping>
+
+
+
+
+	<servlet>
+		<servlet-name>DisplayMessage</servlet-name>
+		<servlet-class>com.hsbc.controller.DisplayMessageServlet</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>DisplayMessage</servlet-name>
+		<url-pattern>/display</url-pattern>
+	</servlet-mapping>
+
+
+
+	<welcome-file-list>
+		<welcome-file>index.html</welcome-file>
+
+	</welcome-file-list>
 </web-app>

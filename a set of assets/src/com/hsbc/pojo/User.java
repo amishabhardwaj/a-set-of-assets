@@ -2,10 +2,6 @@ package com.hsbc.pojo;
 
 import java.util.Date;
 
-enum rou {
-	Admin, Borrower
-}
-
 public class User {
 
 	private int userId;
@@ -15,17 +11,17 @@ public class User {
 	private String email;
 	private Date lastLoginTime;
 	private String password;
-	private rou role;
+	private String role;
 
 	public User() {
 	}
 
 	public User(int userId, String userName, String name, String phoneNumber, String email, Date lastLoginTime,
-			String password, rou role) {
+			String password, String role) {
 		super();
 		this.userId = userId;
 		this.userName = userName;
-		Name = name;
+		this.Name = name;
 		this.phoneNumber = phoneNumber;
 		this.email = email;
 		this.lastLoginTime = lastLoginTime;
@@ -89,11 +85,11 @@ public class User {
 		this.password = password;
 	}
 
-	public rou getRole() {
+	public String getRole() {
 		return role;
 	}
 
-	public void setRole(rou role) {
+	public void setRole(String role) {
 		this.role = role;
 	}
 

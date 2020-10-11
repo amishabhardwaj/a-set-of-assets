@@ -2,10 +2,6 @@ package com.hsbc.pojo;
 
 import java.util.Date;
 
-enum bs {
-	Open, Close, Pending
-}
-
 public class Borrow {
 
 	private int transactionId;
@@ -14,13 +10,13 @@ public class Borrow {
 	private Date issueDate;
 	private Date dueDate;
 	private Date returnDate;
-	private bs borrowStatus;
+	private String borrowStatus;
 
 	public Borrow() {
 	}
 
 	public Borrow(int transactionId, int userId, int assetId, Date issueDate, Date dueDate, Date returnDate,
-			bs borrowStatus) {
+			String borrowStatus) {
 		super();
 		this.transactionId = transactionId;
 		this.userId = userId;
@@ -79,11 +75,11 @@ public class Borrow {
 		this.returnDate = returnDate;
 	}
 
-	public bs getBorrowStatus() {
+	public String getBorrowStatus() {
 		return borrowStatus;
 	}
 
-	public void setBorrowStatus(bs borrowStatus) {
+	public void setBorrowStatus(String borrowStatus) {
 		this.borrowStatus = borrowStatus;
 	}
 
@@ -93,5 +89,4 @@ public class Borrow {
 				+ issueDate + ", dueDate=" + dueDate + ", returnDate=" + returnDate + ", borrowStatus=" + borrowStatus
 				+ "]";
 	}
-
 }

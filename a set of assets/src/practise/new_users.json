@@ -1,0 +1,49 @@
+{
+	"new_users": [
+		{
+			"Username": "amisha.lko",
+			"Name": "Amisha Bhardwaj",
+			"Phone_Number": "9876543212",
+			"Email": "amisha.lko@gmail.com",
+			"Last_Login_Time": "1999-01-01 03:20:30",
+			"Password": "amisha@03",
+			"Role": "Admin"
+		},
+		{
+			"Username": "durva.bhopal",
+			"Name": "Durva Tiwari",
+			"Phone_Number": "9575312468",
+			"Email": "durva.bhopal@gmail.com",
+			"Last_Login_Time": "1999-01-01 07:30:30",
+			"Password": "durva@11",
+			"Role": "Borrower"
+		},
+		{
+			"Username": "shubhi.doon",
+			"Name": "Shubhi Jain",
+			"Phone_Number": "9182736455",
+			"Email": "shubhi.doon@gmail.com",
+			"Last_Login_Time": "1999-01-01 06:40:30",
+			"Password": "shubhi@05",
+			"Role": "borrower"
+		},
+		{
+			"Username": "saransh.rajasthan",
+			"Name": "Saransh Gahlot",
+			"Phone_Number": "8677543811",
+			"Email": "saransh.rajasthan@gmail.com",
+			"Last_Login_Time": "1999-01-01 05:50:30",
+			"Password": "saransh@13",
+			"Role": "borrower"
+		},
+		{
+			"Username": "maithely.delhi",
+			"Name": "Maithely Sharma",
+			"Phone_Number": "7654889321",
+			"Email": "maithely.delhi@gmail.com",
+			"Last_Login_Time": "1999-01-01 04:20:30",
+			"Password": "maithely@01",
+			"Role": "borrower"
+		}
+	]
+}
