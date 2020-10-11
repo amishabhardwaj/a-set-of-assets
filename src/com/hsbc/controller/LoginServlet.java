@@ -17,15 +17,13 @@ public class LoginServlet extends HttpServlet {
 	public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
 		int userid = Integer.parseInt(request.getParameter("userid"));
 		String password = request.getParameter("password");
-		AuthenticationDao authDao = new AuthenticationDao();
+		// AuthenticationDao authDao = new AuthenticationDao();
 		UserDao userDao = new UserDao();
-		/*
-		The function verifyCredentials(userid, password) is written assuming that USERNAME and PASSWORD are stored in USERS table, If not then move the verifyCredentials(username, password) function from UserBeanDao to 
-		 */
-		if(authDao.verifyCredentials(userid, password)) {
+		if(userDao.verifyCredentials(userid, password)) {
 			User currentUser = userDao.fetchUserDetails(userid);
 			boolean lastLoginUpdated = userDao.updateLastLogin(userid);
-			String role = authDao.getRole(userid);
+			// String role = authDao.getRole(userid);
+			String role = userDao.getRole(userid);
 					
 			HttpSession session = request.getSession();
 			session.setAttribute("userid", userid);
