@@ -181,7 +181,7 @@ public class GraphTest extends JPanel {
             BufferedImage image = new BufferedImage(frame.getWidth(), frame.getHeight(), BufferedImage.TYPE_INT_RGB);
             Graphics2D graphics2D = image.createGraphics();
             frame.paint(graphics2D);
-            ImageIO.write(image,"jpeg", new File("GraphPractice.jpeg"));
+            ImageIO.write(image,"jpeg", new File("Graph.jpeg"));
         }
         catch(Exception exception)
         {
