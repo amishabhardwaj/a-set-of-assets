@@ -17,13 +17,13 @@ public class LoginServlet extends HttpServlet {
 	public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
 		int userid = Integer.parseInt(request.getParameter("userid"));
 		String password = request.getParameter("password");
-		// AuthenticationDao authDao = new AuthenticationDao();
+		AuthenticationDao authDao = new AuthenticationDao();
 		UserDao userDao = new UserDao();
-		if(userDao.verifyCredentials(userid, password)) {
+		if(authDao.verifyCredentials(userid, password)) { // Doing from AuthDao as I dont have updated table
 			User currentUser = userDao.fetchUserDetails(userid);
 			boolean lastLoginUpdated = userDao.updateLastLogin(userid);
-			// String role = authDao.getRole(userid);
-			String role = userDao.getRole(userid);
+			String role = authDao.getRole(userid);
+			//String role = userDao.getRole(userid);
 					
 			HttpSession session = request.getSession();
 			session.setAttribute("userid", userid);

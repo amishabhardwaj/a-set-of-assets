@@ -209,10 +209,11 @@ ol {
 // AssetDao dao=new AssetDao();
 int userid = (Integer)session.getAttribute("userid");
 // ArrayList<Asset> assetList= (ArrayList<Asset>)dao.getLendableAssets(userid);
+
 ArrayList<Asset> assetList= (ArrayList<Asset>) session.getAttribute("assetsAvailable");
 pageContext.setAttribute("asset",assetList);
-System.out.println(assetList);
-System.out.println(assetList);
+System.out.println(assetList); // Debugging purpose
+
 %>
 
 
@@ -234,8 +235,14 @@ System.out.println(assetList);
 				<td>${a.subcategory}</td>
 				<td>${a.featureDescription}</td>
 				<td>${a.dateAdded}</td>
-				<td>${a.isAvailable}</td>	
-				<td><a href="BorrowAsset?action=BORROW & assetIdToBorrow=${a.assetId}">Borrow</a></td> 
+				<td>${a.isAvailable}</td>
+				<td>
+					<form method="post" action="borrowAssetServlet">
+					<input type="checkbox" name="assetIdToBorrow" value="${a.assetId}">
+					<input type="submit" value="Borrow">
+					</form>	
+				</td>
+				<!--<td><a href="borrowAssetServlet?borrowing=yes&assetIdToBorrow=${a.assetId}">Borrow</a></td>  -->	 
 		</tr>
 		</c:forEach>
 		</table>

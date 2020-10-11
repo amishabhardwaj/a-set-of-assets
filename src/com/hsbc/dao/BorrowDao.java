@@ -58,7 +58,7 @@ public class BorrowDao {
 			
 			prst.setDate(3,currentDate);
 			prst.setDate(4,dueDate);
-			prst.setString(4,"OPEN");
+			prst.setString(5,"OPEN");
 			
 			int rowsUpdated = prst.executeUpdate();
 			
