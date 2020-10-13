@@ -1,0 +1,113 @@
+
+
+create table Users(Userid int NOT NULL GENERATED ALWAYS AS IDENTITY (START WITH 1, INCREMENT BY 1) primary key,Username varchar(50),Name varchar(50),Phone_Number varchar(50),Email varchar(30),Last_Login_Time timestamp);
+
+create table Authentication(Userid int references Users(Userid),Password varchar(50),Role varchar(50));
+
+
+// Table Schema
+
+create table Users(Userid int NOT NULL GENERATED ALWAYS AS IDENTITY (START WITH 1, INCREMENT BY 1) primary key,Username varchar(50),Name varchar(50),Phone_Number varchar(50),Email varchar(30),Last_Login_Time timestamp,Password varchar(50),Role varchar(50));
+
+
+create table Category(Category_Name varchar(50) primary key,Lending_Period int,Ban_Period int,Fine_Per_Day int);
+
+create table Asset(Assetid int NOT NULL GENERATED ALWAYS AS IDENTITY (START WITH 1, INCREMENT BY 1) primary key,Category_Name varchar(50) references Category(Category_Name),Subcategory varchar(50),Feature_Description varchar(100),Date_Added date,Is_Available boolean);
+
+
+
+create table Borrow(Transactionid int NOT NULL GENERATED ALWAYS AS IDENTITY (START WITH 1, INCREMENT BY 1) primary key,Userid int references Users(Userid),Assetid int references Asset(Assetid),Issue_Date date,Due_Date date,Return_Date date,Borrow_Status varchar(50));
+
+
+insert into Borrow(Useris,Assetid,Issue_Date,Due_Date,Return_Date,Borrow_Status) values(2,4,'2020-10-10','2020-10-20',null,'open');
+
+create table OverDueTransactions(TransactioniD int references Borrow(Transactionid),Ban_Start_Date date,is_Fine_Paid boolean,is_Ban_Finished boolean,Message varchar(100));
+
+// User Table Insertion
+
+insert into Users(Username,Name,Phone_Number,Email,Last_Login_Time) values('IronMan234','Tony Stark','1234562345','tony@gmail.com','1999-01-01 03:20:30','Pass@123','Admin');
+
+insert into Users(Username,Name,Phone_Number,Email,Last_Login_Time) values('CaptainAmerica145','Steve Rogers','2634562345','cap@gmail.com','1999-01-02 05:20:30','Pass@123','Borrower');
+
+insert into Users(Username,Name,Phone_Number,Email,Last_Login_Time) values('blackwidow565','Natasha','6734562345','agentNR@gmail.com','1998-01-01 01:20:30','Pass@123','Borrower');
+
+insert into Users(Username,Name,Phone_Number,Email,Last_Login_Time) values('hulk','Banner','9234562345','greenman@gmail.com','1969-01-01 13:20:30','Pass@123','Borrower');
+
+
+// Authentication Table
+
+
+insert into Authentication values(1,'Pass@123','Admin');
+insert into Authentication values(2,'Pass@123','Borrower');
+insert into Authentication values(3,'Pass@123','Borrower');
+insert into Authentication values(4,'Pass@123','Borrower');
+
+
+// Insertion into Category
+
+insert into Category Values('Laptop',10,10,10000);
+insert into Category Values('Smartphone',30,15,8000);
+
+// Insertion into Asset
+
+insert into Asset(Category_Name,Subcategory,Feature_Description,Date_Added,Is_Available) values('Laptop','Dell','Some Description','2020-12-01',true);
+insert into Asset(Category_Name,Subcategory,Feature_Description,Date_Added,Is_Available) values('Laptop','Lenevo','Some Description','2020-12-01',true);
+insert into Asset(Category_Name,Subcategory,Feature_Description,Date_Added,Is_Available) values('Laptop','Apple','Some Description','2020-12-01',true);
+insert into Asset(Category_Name,Subcategory,Feature_Description,Date_Added,Is_Available) values('Smartphone','Samsung','Some Description','2020-12-01',true);
+insert into Asset(Category_Name,Subcategory,Feature_Description,Date_Added,Is_Available) values('Smartphone','Apple','Some Description','2020-12-01',true);
+
+
+
+// Insertion into Borrow and Overdue
+
+REFER SCREENSHOT TO UNDERSTAND THE SCENARIO
+Raw Data
+
+3,1,'2020-1-1','2020-1-10','2020-1-09','closed'
+3,4,'2020-1-1','2020-1-30','2020-1-29','closed'
+4,3,'2020-01-10','2020-01-19','2020-01-19','closed'
+2,1,'2020-4-1','2020-4-10','2020-4-09','closed'
+2,4,'2020-5-1','2020-5-30','2020-5-29','closed'
+4,4,'2020-08-10','2020-09-09','2020-09-01','closed'
+3,3,'2020-09-28','2020-09-07','2020-09-10','closed'
+tid,'2020-09-08',true,false,'Ban for 10 days is active'
+4,5,'2020-08-10','2020-09-09',null,'Pending';
+Asset Available is false
+tid,'2020-09-10',false,false,'Ban for 15 days is active'
+2,4,'2020-10-10','2020-10-20',null,'open'
+asset is unavailable
+
+
+
+
+insert into Borrow(Userid,Assetid,Issue_Date,Due_Date,Return_Date,Borrow_Status) values(3,1,'2020-1-1','2020-1-10','2020-1-09','closed');
+
+insert into Borrow(Userid,Assetid,Issue_Date,Due_Date,Return_Date,Borrow_Status) values(3,4,'2020-1-1','2020-1-30','2020-1-29','closed');
+
+
+insert into Borrow(Userid,Assetid,Issue_Date,Due_Date,Return_Date,Borrow_Status) values(4,3,'2020-01-10','2020-01-19','2020-01-19','closed');
+
+insert into Borrow(Userid,Assetid,Issue_Date,Due_Date,Return_Date,Borrow_Status) values(2,1,'2020-4-1','2020-4-10','2020-4-09','closed');
+
+insert into Borrow(Userid,Assetid,Issue_Date,Due_Date,Return_Date,Borrow_Status) values(2,4,'2020-5-1','2020-5-30','2020-5-29','closed');
+
+insert into Borrow(Userid,Assetid,Issue_Date,Due_Date,Return_Date,Borrow_Status) values(4,4,'2020-08-10','2020-09-09','2020-09-01','closed');
+------------------------------------------
+
+insert into Borrow(Userid,Assetid,Issue_Date,Due_Date,Return_Date,Borrow_Status) values(3,3,'2020-09-28','2020-09-07','2020-09-10','closed');
+
+insert into OverDueTransactions values(8,'2020-09-08',true,false,'Ban for 10 days is active');
+--------------------------------------------------------------------------
+
+insert into Borrow(Userid,Assetid,Issue_Date,Due_Date,Return_Date,Borrow_Status) values(4,5,'2020-08-10','2020-09-09',null,'Pending');
+
+insert into OverDueTransactions values(9,'2020-09-10',false,false,'Ban for 15 days is active');
+tid,'2020-09-10',false,false,'Ban for 15 days is active'
+
+update Asset set Is_Available=false where Assetid=5;
+-----------------------------------------------------------------------------
+
+insert into Borrow(Userid,Assetid,Issue_Date,Due_Date,Return_Date,Borrow_Status) values(2,4,'2020-10-10','2020-10-20',null,'open');
+
+update Asset set Is_Available=false where Assetid=4;
+connect 'jdbc:derby://localhost:1527/EAssets;user=admin;password=password';

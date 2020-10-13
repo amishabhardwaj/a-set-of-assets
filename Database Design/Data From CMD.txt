@@ -1,0 +1,80 @@
+
+ij> select * from Asset;
+ASSETID    |CATEGORY_NAME                                     |SUBCATEGORY                                       |FEATURE_DESCRIPTION                                                                                 |DATE_ADDED|IS_A&
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+1          |Laptop                                            |Dell                                              |Some Description                                                                                    |2020-12-01|true
+2          |Laptop                                            |Lenevo                                            |Some Description                                                                                    |2020-12-01|true
+3          |Laptop                                            |Apple                                             |Some Description                                                                                    |2020-12-01|true
+4          |Smartphone                                        |Samsung                                           |Some Description                                                                                    |2020-12-01|true
+5          |Smartphone                                        |Apple                                             |Some Description                                                                                    |2020-12-01|false
+
+5 rows selected
+ij> insert into Borrow(Userid,Assetid,Issue_Date,Due_Date,Return_Date,Borrow_Status) values(2,4,'2020-10-10','2020-10-20',null,'open');
+1 row inserted/updated/deleted
+ij> update Asset set Is_Available=false where Assetid=4;
+1 row inserted/updated/deleted
+ij> select * from Asset;
+ASSETID    |CATEGORY_NAME                                     |SUBCATEGORY                                       |FEATURE_DESCRIPTION                                                                                 |DATE_ADDED|IS_A&
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+1          |Laptop                                            |Dell                                              |Some Description                                                                                    |2020-12-01|true
+2          |Laptop                                            |Lenevo                                            |Some Description                                                                                    |2020-12-01|true
+3          |Laptop                                            |Apple                                             |Some Description                                                                                    |2020-12-01|true
+4          |Smartphone                                        |Samsung                                           |Some Description                                                                                    |2020-12-01|false
+5          |Smartphone                                        |Apple                                             |Some Description                                                                                    |2020-12-01|false
+
+5 rows selected
+ij> select * from Borrow;
+TRANSACTIO&|USERID     |ASSETID    |ISSUE_DATE|DUE_DATE  |RETURN_DA&|BORROW_STATUS
+-----------------------------------------------------------------------------------------------------------------------
+2          |3          |1          |2020-01-01|2020-01-10|2020-01-09|closed
+3          |3          |4          |2020-01-01|2020-01-30|2020-01-29|closed
+4          |4          |3          |2020-01-10|2020-01-19|2020-01-19|closed
+5          |2          |1          |2020-04-01|2020-04-10|2020-04-09|closed
+6          |2          |4          |2020-05-01|2020-05-30|2020-05-29|closed
+7          |4          |4          |2020-08-10|2020-09-09|2020-09-01|closed
+8          |3          |3          |2020-09-28|2020-09-07|2020-09-10|closed
+9          |4          |5          |2020-08-10|2020-09-09|NULL      |Pending
+10         |2          |4          |2020-10-10|2020-10-20|NULL      |open
+
+9 rows selected
+ij> select * from OverDueTransactions;
+TRANSACTIO&|BAN_START&|IS_F&|IS_B&|MESSAGE
+---------------------------------------------------------------------------------------------------------------------------------------
+8          |2020-09-08|true |false|Ban for 10 days is active
+9          |2020-09-10|false|false|Ban for 15 days is active
+
+2 rows selected
+ij> select * from Users;
+USERID     |USERNAME                                          |NAME                                              |PHONE_NUMBER                                      |EMAIL                         |LAST_LOGIN_TIME
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+1          |IronMan234                                        |Tony Stark                                        |1234562345                                        |tony@gmail.com                |1999-01-01 03:20:30.0
+2          |CaptainAmerica145                                 |Steve Rogers                                      |2634562345                                        |cap@gmail.com                 |1999-01-02 05:20:30.0
+3          |blackwidow565                                     |Natasha                                           |6734562345                                        |agentNR@gmail.com             |1998-01-01 01:20:30.0
+4          |hulk                                              |Banner                                            |9234562345                                        |greenman@gmail.com            |1969-01-01 13:20:30.0
+
+4 rows selected
+ij> select * from Category;
+CATEGORY_NAME                                     |LENDING_PE&|BAN_PERIOD |FINE_PER_D&
+--------------------------------------------------------------------------------------
+Laptop                                            |10         |10         |10000
+Smartphone                                        |30         |15         |8000
+
+2 rows selected
+ij> select * from Assets;
+ERROR 42X05: Table/View 'ASSETS' does not exist.
+ij> select * from Asset;
+ASSETID    |CATEGORY_NAME                                     |SUBCATEGORY                                       |FEATURE_DESCRIPTION                                                                                 |DATE_ADDED|IS_A&
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+1          |Laptop                                            |Dell                                              |Some Description                                                                                    |2020-12-01|true
+2          |Laptop                                            |Lenevo                                            |Some Description                                                                                    |2020-12-01|true
+3          |Laptop                                            |Apple                                             |Some Description                                                                                    |2020-12-01|true
+4          |Smartphone                                        |Samsung                                           |Some Description                                                                                    |2020-12-01|false
+5          |Smartphone                                        |Apple                                             |Some Description                                                                                    |2020-12-01|false
+
+5 rows selected
+ij> select Category_Name from Asset where Assetid In(select Assetid from Borrow where Userid=2 and Borrow_Status='open');
+CATEGORY_NAME
+--------------------------------------------------
+Smartphone
+
+1 row selected
