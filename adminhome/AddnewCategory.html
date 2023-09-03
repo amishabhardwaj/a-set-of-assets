@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Add New Category</title>
+<style>
+body{
+background-color:black;
+}
+.ctrtable
+{
+ margin-left: auto;
+  margin-right: auto;
+  width:120px;
+height:200px;
+//background-color:white;
+}
+.addcatgry
+{
+	font-size:20px;
+	margin:left:200px;	
+margin-top:200px;
+
+	
+}
+td {
+padding-left: 20px; 
+padding-top: 5px;
+padding-bottom: 5px;
+padding-right: 40px;
+color:white;
+}
+
+.addassetbutn{
+border:2px solid #C0C0C0;
+font-weight: bold; 
+font-size:18px;
+color:white;
+width:40px;
+margin-left:530px;
+
+}
+</style>
+</head>
+<body>
+<form align=center class="addcatgry">
+<div style="color:white;font-size:25px;"><b>ADD CATEGORY</b></div><br>
+	<table class="ctrtable">
+	
+		<tr>
+			<td><b>Category Name</b></td>
+			<td><input type=text name="categoryname" required></td>
+		</tr>
+		<tr class="row2">
+			<td><b>Lending Period</b></td>
+			<td><input type=text name="lendingperiod" required></td>
+		
+		</tr>
+		
+		<tr class="row2">
+			<td><b>Ban Period</b></td>
+			<td><input type=text name="banperiod" required></td>
+		</tr>
+		
+		<tr class="row2">
+			<td><b>Fine</b></td>
+			<td><input type=text name="fine" required></td>
+		</tr>
+		
+	</table>
+	
+</div>
+<br>
+<div class="addassetbutn">
+<input type=submit value="Add" onclick="location.href='homeadmindemo.html'"></div>
+</form>
+</body>
